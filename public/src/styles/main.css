@@ -1,0 +1,178 @@
+:root {
+    --main_color: #caa60a;
+    --secondary_color: #402f10;
+}
+.squada-one-regular {
+    font-family: "Squada One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.ubuntu-condensed-regular {
+    font-family: "Ubuntu Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, var(--secondary_color), #000000);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container, .register-container {
+    display: flex;
+    width: 70%;
+    height: 70%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.img-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #402f10, #000000);
+    overflow: hidden;
+    width: 40%;
+}
+
+.login-card, .register-card{
+    width: 60%;
+    padding: 15px;
+    padding-top: 0;
+    text-align: center;
+}
+
+.login-title, .register-title{
+    color: var(--main_color);
+    text-align: center;
+    font-size: 3.5vw;
+}
+.login-title{
+    padding-top: 7%
+}
+
+.image-section img {
+    object-fit: cover;
+}
+
+.forgot-password, .text-center{
+    text-decoration: none;
+    color: var(--main_color);
+}
+
+.formControl:hover {
+    border: 1px solid rgba(255, 255, 255, 0.582);
+}
+
+.formControl, .login-button, .register-button{
+    width: 100%;
+    padding: 5px;
+    border: 0px;
+    border-radius: 17px;
+}
+
+.formControl{
+    background-color: #ffffff47;
+    color: white;
+}
+
+.login-button, .register-button{
+    display: flex;
+    background-color: var(--main_color);
+}
+
+.login-button a, .register-button a{
+    color: black;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.login-button:hover, .register-button:hover{
+    background-color: #caa70a6a;
+    border: 1px solid white;
+}
+
+.social-icons{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.circle {
+    display: flex;
+    width: 10vh;
+    height: 10vh;
+    border: none;
+    border-radius: 50%;
+    background-color: #555555;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.circle:hover{
+    background-color: #5555557f;
+}
+
+.circle i{
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    justify-content: center;
+    padding-top: 30%;
+    font-size: 4vh;
+}
+
+.register-text{
+    color: white;
+    font-size: 2.5vh;
+}
+
+.register-text a{
+    color: var(--main_color);
+}
+@media (max-width: 768px) {
+    .login-container, register-container {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+
+    .img-container {
+        width: 100%;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .img-container img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 0;
+    }
+
+    .login-card {
+        padding: 20px 10px;
+        width: 100%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAINERZ - Login</title>
+    <link rel="stylesheet" href="src/styles/main.css">
+    <script src="https://kit.fontawesome.com/95e2386fb6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="img-container">
+            <img class="img-login" src="" alt="img">
+        </div>
+        <div class="login-card">
+            <h1 class="login-title squada-one-regular">LOGIN</h1>
+            <form id="loginForm">
+                <input type="text" class="formControl ubuntu-condensed-regular" placeholder="Usuario" id="username">
+                <input type="password" class="formControl ubuntu-condensed-regular" placeholder="Contraseña" id="password">
+                <button type="submit" class="login-button squada-one-regular">LOGIN</button>
+            </form>
+            <a href="#" class="forgot-password ubuntu-condensed-regular">¿Olvidó su contraseña?</a>
+            <p class="register-text squada-one-regular mt-3">¿No tiene una cuenta? <a href="register.html">Regístrese aquí</a></p>
+        </div>
+    </div>
+    <script src="../../src/scripts/auth.js"></script>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+        
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+        
+            const response = await fetch("/api/users");
+            const users = await response.json();
+            
+            const user = users.find(u => u.username === username && u.password === password);
+            
+            if (user) {
+                localStorage.setItem("loggedUser", JSON.stringify(user));
+                window.location.href = "/index.html";
+            } else {
+                alert("Usuario o contraseña incorrectos");
+            }
+        });
+        </script>
+</body>
+</html>
