@@ -1,29 +1,19 @@
-// router.js - Maneja la navegación entre páginas sin recargar
+const express = require('express');
+const path = require('path');
+const router = express.Router();
 
-// Mapeo de rutas y archivos HTML
-const routes = {
-    "login": "login.html",
-    "register": "register.html",
-    "index": "index.html",
-    "calendario": "calendario.html"
-};
 
-// Función para cargar contenido dinámico
-function navigateTo(page) {
-    if (routes[page]) {
-        window.location.href = routes[page];
-    } else {
-        console.error("Página no encontrada");
-    }
-}
 
-// Detectar clicks en los enlaces de navegación
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".navLink").forEach(link => {
-        link.addEventListener("click", (e) => {
-            e.preventDefault();
-            const page = link.getAttribute("href").replace(".html", "");
-            navigateTo(page);
-        });
-    });
-});
+// Ruta para servir el HTML
+router.get('/', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/LandingPage/index.html")));
+router.get('/login', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/Login-Register/login.html")));
+router.get('/register', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/Login-Register/register.html")));
+router.get('/bandeja', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/App/bandeja.html")));
+router.get('/calendar', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/App/calendar.html")));
+router.get('/cuentas', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/App/cuentas.html")));
+router.get('/gyms', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/App/gyms.html")));
+router.get('/perfil', (req, res) => res.sendFile(path.resolve(__dirname + "/../../Views/App/perfil.html")));
+router.get('/contactos', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/LandingPage/contactos.html")));
+router.get('/nosotros', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/LandingPage/nosotros.html")));
+
+module.exports = router;
