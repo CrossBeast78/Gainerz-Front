@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAINERZ - Gyms</title>
     <link rel="stylesheet" href="../../src/styles/navbar.css">
+    <link rel="stylesheet" href="../../src/styles/gyms.css">
     <script src="https://kit.fontawesome.com/95e2386fb6.js" crossorigin="anonymous"></script>
-    <script src="src/scripts/router.js"></script>
 </head>
 <body>
     <header class="sidebar">
@@ -31,9 +31,19 @@
         <div class="rest"></div>
     </header>
     <div class="content">
-        <h1 class="squada-one-regular">Bienvenido a gyms</h1>
-        <p class="ubuntu-condensed-regular">Tu plataforma para gestionar entrenamientos.</p>
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Busca tu GYM">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="search-results" id="search-results">
+            <ul>
+                <li>Búsqueda anterior</li>
+                <li>Historial</li>
+                <li>Buscado recientemente</li>
+                <li>Algo más</li>
+            </ul>
+        </div>
     </div>
-    <script src="../../src/scripts/router.js"></script>
+    <script src="../../src/scripts/search.js"></script>
 </body>
 </html>
