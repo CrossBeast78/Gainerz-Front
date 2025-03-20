@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("requestModal");
-    const openBtn = document.getElementById("Op");
-    const closeBtn = document.querySelector("close");
+    const openBtn = document.getElementById("Op_modal");
+    const closeBtn = document.getElementById("close");
   
     console.log("Modal:", modal);
     console.log("Botón Abrir:", openBtn);
@@ -20,5 +20,15 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.target === modal) {
           modal.style.display = "none";
         }
-      });czc
+      });
+
+      document.querySelector(".approve-btn").addEventListener("click", function (event) {
+        event.stopPropagation(); // Evita que el clic active el modal
+        alert("Solicitud aprobada ✅");
+    });
+
+    document.querySelector(".desapprove-btn").addEventListener("click", function (event) {
+        event.stopPropagation(); // Evita que el clic active el modal
+        alert("Solicitud rechazada ❌");
+    });
   });
