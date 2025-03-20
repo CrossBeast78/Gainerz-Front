@@ -36,6 +36,21 @@ body {
     overflow: hidden;
 }
 
+.close {
+    text-align: end;
+    width: 100%;
+}
+
+.close a{
+    color: var(--main_color);
+    padding-right: 2%;
+    font-size: 20px;
+}
+
+.close a:hover{
+    color: #a98c0f;
+}
+
 .img-container {
     flex: 1;
     display: flex;
@@ -59,7 +74,7 @@ body {
     font-size: 3.5vw;
 }
 .login-title{
-    padding-top: 7%
+    padding-top: 1%
 }
 
 .image-section img {
