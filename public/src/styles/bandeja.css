@@ -108,6 +108,7 @@
 .close-btn {
     position: absolute;
     top: 10px;
+    width: 25px;
     right: 10px;
     border: none;
     background: none;
@@ -130,7 +131,41 @@
     cursor: pointer;
 }
 
+.request-title {
+    font-size: 25px;
+   
+}
+
+.request-text {
+    font-size: 25px;
+}
+
+.approve-btn {
+    font-size: 25px;
+    padding: 15px 30px;  /* Aumenta el espacio interno */
+    width: 200px;  /* Ajusta el ancho */
+    height: 60px;  /* Ajusta el alto */
+}
+
+.desapprove-btn {
+    font-size: 25px;
+    padding: 15px 30px;  /* Aumenta el espacio interno */
+    width: 200px;  /* Ajusta el ancho */
+    height: 60px;  /* Ajusta el alto */
+}
+
 #Op_modal {
     cursor: pointer;
 
 } 
+
+#Img-perfil {
+    width: 7%;
+    height: 100%;
+    border-radius: 50%;
+}
+#Img-perfil2 {
+    width: 60%;
+    height: 100%;
+    border-radius: 50%;
+}
