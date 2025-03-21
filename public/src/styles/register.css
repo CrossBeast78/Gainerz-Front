@@ -23,3 +23,18 @@
 .register-button:hover {
     background-color: #caa70a6a;
 }
+
+.close {
+    text-align: end;
+    width: 100%;
+}
+
+.close a{
+    color: var(--main_color);
+    padding-right: 2%;
+    font-size: 20px;
+}
+
+.close a:hover{
+    color: #a98c0f;
+}
