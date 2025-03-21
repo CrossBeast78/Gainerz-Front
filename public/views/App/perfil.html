@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAINERZ - Perfil</title>
     <link rel="stylesheet" href="../../src/styles/navbar.css">
+    <link rel="stylesheet" href="../../src/styles/perfil.css">
     <script src="https://kit.fontawesome.com/95e2386fb6.js" crossorigin="anonymous"></script>
     <script src="src/scripts/router.js"></script>
 </head>
@@ -31,8 +32,29 @@
         <div class="rest"></div>
     </header>
     <div class="content">
-        <h1 class="squada-one-regular">Bienvenido a Perfil</h1>
-        <p class="ubuntu-condensed-regular">Tu plataforma para gestionar entrenamientos.</p>
+        <div class="perfil-principal">
+            <div class="foto-perfil"><img src="#" alt="img perfil"><i class="fa-solid fa-pen-to-square"></i></div>
+            <button class="editar-datos squada-one-regular">Editar Datos</button>
+            <p class="perfil-info squada-one-regular">Se unió desde 2022</p>
+            <p class="perfil-info squada-one-regular">21 Años</p>
+        </div>
+        <div class="perfil-datos">
+            <h1 class="nombre squada-one-regular">Pancho Lolito</h1>
+            <div class="squada-one-regular" style="display:flex; flex-direction: row; justify-content: space-around;">
+                <div style="display:flex; flex-direction: column; width: 50%">
+                    <p class="perfil-atributo border">Mi Gym: </p>
+                    <p class="perfil-atributo border">Mi Peso: </p>
+                    <p class="perfil-atributo border">Mi IMC: </p>  
+                    <p class="perfil-atributo border">Mi Coach: </p>
+                </div>
+                <div style="display:flex; flex-direction: column; width: 50%;">
+                    <p class="perfil-datos-usuario border">Default</p>
+                    <p class="perfil-datos-usuario border">53.4 KG</p>
+                    <p class="perfil-datos-usuario border">28.5 KG/M2</p>
+                    <p class="perfil-datos-usuario border">Default</p>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="../../src/scripts/router.js"></script>
 </body>

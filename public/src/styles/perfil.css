@@ -1,0 +1,101 @@
+:root {
+    --main_color: #caa60a;
+}
+
+.squada-one-regular {
+    font-family: "Squada One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.ubuntu-condensed-regular {
+    font-family: "Ubuntu Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    padding-left: 5%;
+    padding-top: 3%;
+    width: auto;
+}
+
+.perfil-datos, .perfil-principal {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 2vw;
+}
+
+.perfil-principal {
+    align-items: center;
+}
+
+
+.perfil-principal p {
+    margin: 0px;
+    margin-top: 10px;
+}
+
+.foto-perfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.327);
+    height: 30vw;
+    width: 30vw;
+    border-radius: 50%;
+    color: white;
+    font-family: "Ubuntu Condensed";
+}
+
+.editar-datos{
+    width: 30vw;
+    padding: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    background-color: white;
+    border: transparent;
+    font-size: 2vw;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.668);
+}
+
+.perfil-datos{
+    width: 30vw;
+    padding: 7vw;
+    padding-top: 0px;
+}
+
+.Atributo{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 10px;
+    padding-bottom: 0px;
+    border-bottom: 1px solid black;
+}
+
+.perfil-datos-usuario, .perfil-atributo{
+    margin-top: 3vw;
+    font-size: 3vw;
+    margin-bottom: 0px;
+}
+.perfil-datos-usuario{
+    align-items: end;
+    justify-content: end;
+    text-align: end;
+    color: black;
+}
+
+.border {
+    border-bottom: 1px solid black;
+}
+
+.nombre{
+    font-size: 6vw;
+    text-align: center;
+    margin: 0px;
+    margin-top: 2vw;
+}
