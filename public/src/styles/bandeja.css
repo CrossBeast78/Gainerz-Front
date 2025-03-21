@@ -1,23 +1,36 @@
+.notifications-container {
+    width: 102%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px; /* Espacio entre notificaciones */
+}
+
+/* Contenedor de cada notificación */
 .request-container {
     background-color: #fff;
     border-radius: 10px;
-    padding: 15px;
-    margin: auto; /* Centra horizontalmente */
-    width: 95%;
-    top: 80px;
-    right: 20px;
+    padding: 10px;
+    margin: 10px auto;
+    width: 90%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    min-height: 80px; /* Altura mínima ajustada */
 }
 
+/* Cabecera de cada notificación */
 .request-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: #4a3800;
-    width: 97.5%;
+    width: 100%;
     color: white;
     padding: 8px;
     border-radius: 10px;
@@ -25,59 +38,67 @@
     font-size: 14px;
 }
 
+/* Imagen de perfil en las notificaciones */
+.img-perfil {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Texto dentro de la notificación */
+.request-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.request-text {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Botones de aprobación/rechazo */
 .request-actions {
     display: flex;
-    gap: 5px;
+    gap: 10px;
 }
 
 .request-actions button {
     background: none;
     border: none;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.approve-btn {
+    background-color: #4caf50;
     color: white;
 }
 
-.request-card {
-    background: #fff;
-    border-radius: 10px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 97.5%;
-    border: 1px solid #4a3800;
+.approve-btn:hover {
+    background-color: #388e3c;
 }
 
-.request-info {
-    flex: 1;
-    font-size: 12px;
+.desapprove-btn {
+    background-color: #d32f2f;
+    color: white;
 }
 
-.request-profile {
-    width: 50px;
-    height: 50px;
-    background: #ddd;
+.desapprove-btn:hover {
+    background-color: #b71c1c;
+}
+
+/* Ajuste de tamaño de la imagen dentro del modal */
+#img-perfil2 {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
 }
-
-.close-btn {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    border: none;
-    background: none;
-    font-size: 16px;
-    cursor: pointer;
-}
-
 
 /* Estilos del Modal */
 .modal {
@@ -148,7 +169,7 @@
 }
 
 .desapprove-btn {
-    font-size: 25px;
+    font-size: 20px;
     padding: 15px 30px;  /* Aumenta el espacio interno */
     width: 200px;  /* Ajusta el ancho */
     height: 60px;  /* Ajusta el alto */
@@ -159,13 +180,38 @@
 
 } 
 
-#Img-perfil {
-    width: 7%;
-    height: 100%;
-    border-radius: 50%;
+
+.anuncios-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px auto;
+    width: 90%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    min-height: 80px; /* Altura mínima ajustada */
 }
-#Img-perfil2 {
-    width: 60%;
-    height: 100%;
+
+.anuncios-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #4a3800;
+    width: 100%;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.img-anuncio {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
+    object-fit: cover;
 }

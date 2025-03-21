@@ -7,10 +7,6 @@
     <link rel="stylesheet" href="/../src/styles/navbar.css">
     <link rel="stylesheet" href="/../src/styles/bandeja.css">
     <script src="https://kit.fontawesome.com/95e2386fb6.js" crossorigin="anonymous"></script>
-    
-
-
-
 </head>
 <body>
     <header class="sidebar">
@@ -38,39 +34,54 @@
     <div class="content">
         <div class="header-superior">
             <div class="day ubuntu-condensed-regular">
-                <a class="weekDay" href="#">TODO</a>
+                <a class="weekDay" href="/notificaciones">TODO</a>
             </div>
             <div class="day ubuntu-condensed-regular">
-                <a class="weekDay" href="#">SOLICITUDES</a>
+                <a class="weekDay" href="/solicitudes">SOLICITUDES</a>
             </div>
             <div class="day ubuntu-condensed-regular">
-                <a class="weekDay" href="#">ANUNCIOS</a>
+                <a class="weekDay" href="/anuncios">ANUNCIOS</a>
             </div>
             <div class="day ubuntu-condensed-regular">
-                <a class="weekDay" href="#">OTROS</a>
+                <a class="weekDay" href="/otros">OTROS</a>
             </div>
         </div>
-        <div id="Op_modal" class="request-container btn-primary">  
-            <div class="request-header">
-                <img id="Img-perfil" src="https://static.vecteezy.com/system/resources/previews/026/434/409/non_2x/default-avatar-profile-icon-social-media-user-photo-vector.jpg" alt="">
-                <span class="request-title">JUAN COACH</span>
-                <span class="request-text">Solicita entrenarte</span>
-                <div class="request-actions">
-                    <button class="approve-btn">✔</button>
-                    <button class="desapprove-btn">🗑</button>
+    
+        <!-- Contenedor donde se agregarán las notificaciones dinámicas -->
+        <div class="notifications-container">
+
+                <div class="request-container " style="margin-bottom: 15px;">
+                    <div id="Op_modal" class="request-header">
+                        <img class="img-perfil" src="https://static.vecteezy.com/system/resources/previews/026/434/409/non_2x/default-avatar-profile-icon-social-media-user-photo-vector.jpg" alt="">
+                        <span class="request-title">JUAN COACH</span>
+                        <span class="request-text">Solicita entrenarte</span>
+                        <div class="request-actions">
+                            <button class="approve-btn" data-id="1">✔</button>
+                            <button class="desapprove-btn" data-id="1">🗑</button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="request-container btn-primary" style="margin-bottom: 15px;">
+                    <div class="request-header">
+                        <img class="img-perfil" src="https://static.vecteezy.com/system/resources/previews/026/434/409/non_2x/default-avatar-profile-icon-social-media-user-photo-vector.jpg" alt="">
+                        <span class="request-title">MARIA ENTRENADORA</span>
+                        <span class="request-text">Quiere ayudarte con tus rutinas</span>
+                        <div class="request-actions">
+                            <button class="approve-btn" data-id="2">✔</button>
+                            <button class="desapprove-btn" data-id="2">🗑</button>
+                        </div>
+                    </div>
                 </div>
         </div>
-       
     </div>
-    
-    
-    <!-- Botón para abrir el modal -->
-    
+
+    <!-- Modal para detalles de la solicitud -->
     <div id="requestModal" class="modal">
         <div class="modal-content">
-            <button id="close" class="close-btn" >✖</button>
+            <button id="close" class="close-btn">✖</button>
             <div class="request-info">
-                <img id="Img-perfil2" src="https://static.vecteezy.com/system/resources/previews/026/434/409/non_2x/default-avatar-profile-icon-social-media-user-photo-vector.jpg" alt=""><br><br>
+                <img id="img-perfil2" src="https://static.vecteezy.com/system/resources/previews/026/434/409/non_2x/default-avatar-profile-icon-social-media-user-photo-vector.jpg" alt=""><br><br>
                 <p><strong>GYM:</strong> <span class="gym-name">Default</span></p>
                 <p><strong>PESO:</strong> <span class="weight">80 kg</span></p>
                 <p><strong>RATING:</strong> <span class="rating">⭐⭐⭐⭐⭐</span></p>
