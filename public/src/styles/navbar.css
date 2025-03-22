@@ -24,6 +24,10 @@
     background-color: var(--main_color);
 }
 */
+.content{
+    margin-left: 250px ;
+}
+
 body{
     display: flex;
     flex-direction: row;
@@ -52,6 +56,7 @@ header {
     background-color: transparent;
     height: 100vh;
     width: 17vw;
+    position: fixed;
 }
 
 .black{
@@ -89,6 +94,7 @@ header {
     height: 100%;
     background-color: black;
 }
+
 
 .pe:hover ~ .ca {
     border-top-right-radius: 30px;
@@ -136,6 +142,7 @@ header {
     display: flex;
     flex-direction: row;
     width: 85vw;
+    cursor: pointer;
 }
 .weekDay{
     color: white;
