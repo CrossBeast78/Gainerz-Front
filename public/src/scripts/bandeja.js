@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const requestContainer = document.querySelector(".notifications-container");
     const links = document.querySelectorAll(".navLink");
 
+    let allNotifications = [];
+
     closeBtn.addEventListener("click", function () {
         modal.style.display = "none";
     });
@@ -14,7 +16,36 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    console.log("Token que se está enviando:", AppStorage.getToken());
+    function renderNotifications(notifications) {
+        requestContainer.innerHTML = "";
+        notifications.forEach(notification => {
+            const notificationElement = document.createElement("div");
+            notificationElement.classList.add("request-container");
+            notificationElement.style.marginBottom = "15px";
+            notificationElement.innerHTML = `
+                <div class="request-header" style="cursor: pointer;">
+                    <span class="request-title">${notification._Title}</span>
+                    <span class="request-text">${notification._Message}</span>
+                    <div class="request-actions">
+                        <button class="approve-btn" data-id="${notification._NotificationId}">✔</button>
+                        <button class="desapprove-btn" data-id="${notification._NotificationId}">🗑</button>
+                    </div>
+                </div>
+            `;
+            requestContainer.appendChild(notificationElement);
+        });
+
+        addEventListeners();
+    }
+
+    function filterByCategory(category) {
+        if (category === "all") {
+            renderNotifications(allNotifications);
+        } else {
+            const filtered = allNotifications.filter(n => n._Type === category);
+            renderNotifications(filtered);
+        }
+    }
 
     async function fetchNotifications() {
         try {
@@ -26,85 +57,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const data = await response.json();
             console.log("Respuesta de notificaciones:", data);
-            renderNotifications(data);
+
+            if (Array.isArray(data)) {
+                allNotifications = data;
+                renderNotifications(allNotifications);
+            } else {
+                console.warn("respuesta no valida", data);
+            }
         } catch (error) {
             console.error("Error al cargar notificaciones:", error);
         }
     }
 
-    function renderNotifications(notifications) {
-        requestContainer.innerHTML = "";
-        notifications.forEach(notification => {
-            const notificationElement = document.createElement("div");
-            notificationElement.classList.add("request-container");
-            notificationElement.style.marginBottom = "15px";
-            notificationElement.innerHTML = `
-                <div class="request-header" style="cursor: pointer;">
-                    <img class="img-perfil" src="${notification.profileImage}" alt="">
-                    <span class="request-title">${notification.sender}</span>
-                    <span class="request-text">${notification.message}</span>
-                    <div class="request-actions">
-                        <button class="approve-btn" data-id="${notification.id}">✔</button>
-                        <button class="desapprove-btn" data-id="${notification.id}">🗑</button>
-                    </div>
-                </div>
-            `;
-            requestContainer.appendChild(notificationElement);
+    function addEventListeners() {
+        document.querySelectorAll(".approve-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const notificationId = this.getAttribute("data-id");
+                alert("Solicitud aprobada ✅ (ID: " + notificationId + ")");
+            });
         });
 
-        addEventListeners();
+        document.querySelectorAll(".desapprove-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const notificationId = this.getAttribute("data-id");
+                alert("Solicitud rechazada ❌ (ID: " + notificationId + ")");
+            });
+        });
     }
 
-   /* Renderizar anuncios
-   function renderAnnouncements(announcements) {
-    announcementsContainer.innerHTML = "";
-    announcements.forEach(announcement => {
-        const announcementElement = document.createElement("div");
-        announcementElement.classList.add("request-container", "btn-primary");
-        announcementElement.style.marginBottom = "10px";
-        announcementElement.style.padding = "10px";
-        announcementElement.innerHTML = `
-            <div class="anunce-header" style="display: flex; align-items: center; gap: 10px;">
-                <img class="img-anunce" src="${announcement.image}" alt="" style="width: 50px; height: 50px; border-radius: 50%;">
-                <div style="flex-grow: 1;">
-                    <span class="anunce-title" style="font-size: 16px; font-weight: bold;">${announcement.title}</span>
-                    <p class="anunce-text" style="font-size: 14px; margin: 5px 0;">${announcement.description}</p>
-                </div>
-            </div>
-        `;
-        announcementsContainer.appendChild(announcementElement);
+    // ✅ Listeners para filtrar categorías
+    document.querySelectorAll(".weekDay").forEach(button => {
+        button.addEventListener("click", (e) => {
+            e.preventDefault();
+            const category = button.dataset.category;
+            filterByCategory(category);
         });
-    }*/
-
-  // Agregar eventos a los botones de aprobación y rechazo
-  function addEventListeners() {
-      document.querySelectorAll(".approve-btn").forEach(button => {
-          button.addEventListener("click", function () {
-              const notificationId = this.getAttribute("data-id");
-              alert("Solicitud aprobada ✅ (ID: " + notificationId + ")");
-          });
-      });
-
-      document.querySelectorAll(".desapprove-btn").forEach(button => {
-          button.addEventListener("click", function () {
-              const notificationId = this.getAttribute("data-id");
-              alert("Solicitud rechazada ❌ (ID: " + notificationId + ")");
-          });
-      });
-  }
-
-  links.forEach(link => {
-    link.addEventListener("mouseover", function () {
-        links.forEach(l => l.classList.remove("hover-active"));
-        this.classList.add("hover-active");
     });
 
-    link.addEventListener("mouseleave", function () {
-        links.forEach(l => l.classList.remove("hover-active"));
-    });
-  });
-
-  // Cargar las notificaciones al iniciar la página
-  fetchNotifications();
-  //renderAnnouncements();
+    // ✅ Cargar notificaciones al iniciar
+    fetchNotifications();
 });

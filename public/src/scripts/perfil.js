@@ -1,91 +1,127 @@
+
 document.addEventListener("DOMContentLoaded", () => {
-    const content = document.createElement("div");
-    content.className = "content";
+    const content = document.querySelector(".content");
 
-    // Perfil principal
-    const perfilPrincipal = document.createElement("div");
-    perfilPrincipal.className = "perfil-principal";
+    function cargarPerfilDesdeAppStorage() {
+        const userData = AppStorage.getUser();
 
-    const fotoPerfil = document.createElement("div");
-    fotoPerfil.className = "foto-perfil";
+        if (!userData) {
+            content.innerHTML = "<p>No hay información de perfil guardada.</p>";
+            return;
+        }
 
-    const img = document.createElement("img");
-    img.src = "#";
-    img.alt = "img perfil";
+        const perfil = new window.Profiles(
+            userData.id,
+            "user", // o "coach"
+            userData.name,
+            userData.photoLink,
+            userData.email,
+            userData.gender,
+            userData.age,
+            userData.height,
+            userData.weight
+        );
 
-    const iconoEditar = document.createElement("i");
-    iconoEditar.className = "fa-solid fa-pen-to-square";
+        renderizarPerfil(perfil);
+    }
 
-    fotoPerfil.appendChild(img);
-    fotoPerfil.appendChild(iconoEditar);
+    function renderizarPerfil(perfil) {
+        content.innerHTML = "";
 
-    const btnEditar = document.createElement("button");
-    btnEditar.className = "editar-datos squada-one-regular";
-    btnEditar.textContent = "Editar Datos";
+        const perfilPrincipal = document.createElement("div");
+        perfilPrincipal.className = "perfil-principal";
 
-    const joined = document.createElement("p");
-    joined.className = "perfil-info squada-one-regular";
-    joined.textContent = "Se unió desde 2022";
+        const fotoPerfil = document.createElement("div");
+        fotoPerfil.className = "foto-perfil";
 
-    const edad = document.createElement("p");
-    edad.className = "perfil-info squada-one-regular";
-    edad.textContent = "21 Años";
+        const img = document.createElement("img");
+        img.src = perfil.photoLink;
+        img.alt = "Foto de perfil";
 
-    perfilPrincipal.appendChild(fotoPerfil);
-    perfilPrincipal.appendChild(btnEditar);
-    perfilPrincipal.appendChild(joined);
-    perfilPrincipal.appendChild(edad);
+        const iconoEditar = document.createElement("i");
+        iconoEditar.className = "fa-solid fa-pen-to-square";
 
-    // Perfil datos
-    const perfilDatos = document.createElement("div");
-    perfilDatos.className = "perfil-datos";
+        fotoPerfil.appendChild(img);
+        fotoPerfil.appendChild(iconoEditar);
 
-    const nombre = document.createElement("h1");
-    nombre.className = "nombre squada-one-regular";
-    nombre.textContent = "Pancho Lolito";
+        const btnEditar = document.createElement("button");
+        btnEditar.className = "editar-datos squada-one-regular";
+        btnEditar.textContent = "Editar Datos";
 
-    const fila = document.createElement("div");
-    fila.className = "squada-one-regular";
-    fila.style.display = "flex";
-    fila.style.flexDirection = "row";
-    fila.style.justifyContent = "space-around";
+        const edad = document.createElement("p");
+        edad.className = "perfil-info squada-one-regular";
+        edad.textContent = `${perfil.age} años`;
 
-    const col1 = document.createElement("div");
-    col1.style.display = "flex";
-    col1.style.flexDirection = "column";
-    col1.style.width = "50%";
+        perfilPrincipal.appendChild(fotoPerfil);
+        perfilPrincipal.appendChild(btnEditar);
+        perfilPrincipal.appendChild(edad);
 
-    const atributos = ["Mi Gym: ", "Mi Peso: ", "Mi IMC: ", "Mi Coach: "];
-    atributos.forEach(text => {
-        const p = document.createElement("p");
-        p.className = "perfil-atributo border";
-        p.textContent = text;
-        col1.appendChild(p);
-    });
+        const perfilDatos = document.createElement("div");
+        perfilDatos.className = "perfil-datos";
 
-    const col2 = document.createElement("div");
-    col2.style.display = "flex";
-    col2.style.flexDirection = "column";
-    col2.style.width = "50%";
+        const nombre = document.createElement("h1");
+        nombre.className = "nombre squada-one-regular";
+        nombre.textContent = perfil.name;
 
-    const datosUsuario = ["Default", "53.4 KG", "28.5 KG/M2", "Default"];
-    datosUsuario.forEach(text => {
-        const p = document.createElement("p");
-        p.className = "perfil-datos-usuario border";
-        p.textContent = text;
-        col2.appendChild(p);
-    });
+        const fila = document.createElement("div");
+        fila.className = "squada-one-regular";
+        fila.style.display = "flex";
+        fila.style.flexDirection = "row";
+        fila.style.justifyContent = "space-around";
 
-    fila.appendChild(col1);
-    fila.appendChild(col2);
+        const col1 = document.createElement("div");
+        col1.style.display = "flex";
+        col1.style.flexDirection = "column";
+        col1.style.width = "50%";
 
-    perfilDatos.appendChild(nombre);
-    perfilDatos.appendChild(fila);
+        const col2 = document.createElement("div");
+        col2.style.display = "flex";
+        col2.style.flexDirection = "column";
+        col2.style.width = "50%";
 
-    // Añadir todo al content
-    content.appendChild(perfilPrincipal);
-    content.appendChild(perfilDatos);
+        const atributos = [
+            "Correo:",
+            "Género:",
+            "Altura:",
+            "Peso:",
+            "IMC:"
+          ];
+          
+          const valores = [
+            perfil.email,          // ✅ Correo
+            perfil.gender,         // ✅ Género
+            `${perfil.height} cm`, // ✅ Altura
+            `${perfil.weight} kg`, // ✅ Peso
+            calcularIMC(perfil.height, perfil.weight) // ✅ IMC
+          ];
 
-    // Agregar al body o a un contenedor específico
-    document.body.appendChild(content);
+        atributos.forEach((attr, i) => {
+            const label = document.createElement("p");
+            label.className = "perfil-atributo border";
+            label.textContent = attr;
+
+            const valor = document.createElement("p");
+            valor.className = "perfil-datos-usuario border";
+            valor.textContent = valores[i];
+
+            col1.appendChild(label);
+            col2.appendChild(valor);
+        });
+
+        fila.appendChild(col1);
+        fila.appendChild(col2);
+        perfilDatos.appendChild(nombre);
+        perfilDatos.appendChild(fila);
+
+        content.appendChild(perfilPrincipal);
+        content.appendChild(perfilDatos);
+    }
+
+    function calcularIMC(alturaCm, pesoKg) {
+        const alturaM = alturaCm / 100;
+        const imc = pesoKg / (alturaM * alturaM);
+        return imc.toFixed(1) + " kg/m²";
+    }
+
+    cargarPerfilDesdeAppStorage();
 });
