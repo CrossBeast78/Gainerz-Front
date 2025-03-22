@@ -23,15 +23,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
 
+            console.log("HEADERS DE RESPUESTA:");
+            for (let [key, value] of response.headers.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+
+
             if (response.status === 200) {
-                // Login exitoso
+                // ✅ Obtener token del header
+                const token = response.headers.get("token");// o "authorization" si tu backend usa eso
+
+                // ✅ Obtener user del body
                 const data = await response.json();
-
-                // Si recibes token o ID, puedes guardarlo
-                if (data.token) {
-                    sessionStorage.setItem("token", data.token);
+                const account = data; // o data directamente si el body ya es el usuario
+                console.log("Token:", token);
+                console.log("RESPUESTA DEL BACKEND:", data);
+               
+                if (!token || !account) {
+                    alert("Faltan datos del servidor.");
+                    return;
                 }
-
+            
+                AppStorage.logedd(token, account);
                 alert("Login exitoso");
                 window.location.href = "/bandeja";
             } else if (response.status === 400) {

@@ -1,7 +1,5 @@
 class AppStorage{
 
-    /* ocupo que tenga un valor booleano que representa si ya fue inicializado otro que si ya esta logeado un token y un usuario*/
-
     static init(){
         if (!sessionStorage.getItem("initialized")){
             sessionStorage.setItem("initialized", true);
@@ -25,8 +23,8 @@ class AppStorage{
         sessionStorage.setItem("logged", value.toString());
     }
 
-    static setToken(value){
-        sessionStorage.setItem("token", token);
+    static setToken(Token){
+        sessionStorage.setItem("token", Token);
     }
 
     static setUser(userObj){
@@ -55,6 +53,13 @@ class AppStorage{
         sessionStorage.removeItem("logged");
         sessionStorage.removeItem("token");
         sessionStorage.removeItem("user");
+    }
+
+    static logedd(token, account){
+        AppStorage.setToken(token);
+        AppStorage.setUser(account);
+        AppStorage.setLogged(true);
+        AppStorage.setInitialized(true);
     }
 
 
