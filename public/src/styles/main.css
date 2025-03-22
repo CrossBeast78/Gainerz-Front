@@ -6,6 +6,7 @@
     font-family: "Squada One", sans-serif;
     font-weight: 400;
     font-style: normal;
+    justify-content: center;
 }
 .ubuntu-condensed-regular {
     font-family: "Ubuntu Condensed", sans-serif;
@@ -98,8 +99,8 @@ body {
 }
 
 .formControl{
-    background-color: #ffffff47;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
 }
 
 .login-button, .register-button{
@@ -190,4 +191,13 @@ body {
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
     }
+
+    .checkbox {
+        color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
 }

@@ -6,4 +6,13 @@ export class RestPause extends Set {
         this.rest_between_sub_sets = rest_between_sub_sets;
         this.sub_sets = sub_sets;
     }
+
+    set rest_between_sub_sets(rest_between_sub_sets) {
+        this.rest_between_sub_sets = rest_between_sub_sets;
+    }
+
+    set sub_sets(sub_sets) {
+        this.sub_sets = sub_sets;
+    }
+
 }

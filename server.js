@@ -6,6 +6,7 @@ const router = require('./public/src/scripts/router');
 
 // Ruta para servir el HTML
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(router);
 app.use(express.static('app'));
 app.use(express.static(path.join(__dirname, "public")));

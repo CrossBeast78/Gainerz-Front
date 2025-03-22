@@ -12,6 +12,46 @@ class Profiles {
         this.sentRequests = []; 
     }
 
+    set id(id) {
+        this.id = id;
+    }
+
+    set profileType(profileType) {
+        this.profileType = profileType;
+    }
+
+    set name(name) {
+        this.name = name;
+    }
+
+    set photoLink(photoLink) {
+        this.photoLink = photoLink;
+    }
+
+    set searchHistory(searchHistory) {
+        this.searchHistory = searchHistory;
+    }
+
+    set favoriteExercises(favoriteExercises) {
+        this.favoriteExercises = favoriteExercises;
+    }
+
+    set favoriteBlocks(favoriteBlocks) {
+        this.favoriteBlocks = favoriteBlocks;
+    }
+
+    set savedRoutines(savedRoutines) {
+        this.savedRoutines = savedRoutines;
+    }
+
+    set notifications(notifications) {
+        this.notifications = notifications;
+    }
+
+    set sentRequests(sentRequests) {
+        this.sentRequests = sentRequests;
+    }
+
     nuevaBusqueda(uuid, type, name, photoLink) {
         this.searchHistory.push({ uuid, type, name, photoLink });
     }

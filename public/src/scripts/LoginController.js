@@ -23,21 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
 
-            console.log("HEADERS DE RESPUESTA:");
-            for (let [key, value] of response.headers.entries()) {
-                console.log(`${key}: ${value}`);
-            }
 
 
             if (response.status === 200) {
                 // ✅ Obtener token del header
-                const token = response.headers.get("token");// o "authorization" si tu backend usa eso
+                const token = response.headers.get("token");
 
                 // ✅ Obtener user del body
                 const data = await response.json();
-                const account = data; // o data directamente si el body ya es el usuario
-                console.log("Token:", token);
-                console.log("RESPUESTA DEL BACKEND:", data);
+                const account = data; 
                
                 if (!token || !account) {
                     alert("Faltan datos del servidor.");

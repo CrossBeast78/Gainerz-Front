@@ -6,4 +6,25 @@ export class ExerciseSummary {
         this.equipment = equipment; 
         this.principal_muscle = principal_muscle; 
     }
+
+    set exercise_id(exercise_id) {
+        this.exercise_id = exercise_id;
+    }
+
+    set name(name) {
+        this.name = name;
+    }
+
+    set photo_link(photo_link) {
+        this.photo_link = photo_link;
+    }
+
+    set equipment(equipment) {
+        this.equipment = equipment;
+    }
+
+    set principal_muscle(principal_muscle) {
+        this.principal_muscle = principal_muscle;
+    }
+    
 }

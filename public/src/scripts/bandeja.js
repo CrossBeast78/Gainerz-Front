@@ -1,60 +1,61 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const modal = document.getElementById("requestModal");
-  const closeBtn = document.getElementById("close");
-  const openBtn = document.getElementById("Op_modal");
-  const requestContainer = document.querySelector(".content");
-  const links = document.querySelectorAll(".navLink");
+    const modal = document.getElementById("requestModal");
+    const closeBtn = document.getElementById("close");
+    const requestContainer = document.querySelector(".notifications-container");
+    const links = document.querySelectorAll(".navLink");
 
-  openBtn.addEventListener("click", function () {
-    modal.style.display = "flex";
-  });
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
 
-  closeBtn.addEventListener("click", function () {
-      modal.style.display = "none";
-  });
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
 
-  window.addEventListener("click", function (event) {
-      if (event.target === modal) {
-          modal.style.display = "none";
-      }
-  });
+    console.log("Token que se está enviando:", AppStorage.getToken());
 
-  // Función para cargar notificaciones desde la API
-  async function fetchNotifications() {
-      try {
-          const response = await fetch("/api/notificaciones");
-          const data = await response.json();
-          renderNotifications(data);
-      } catch (error) {
-          console.error("Error al cargar notificaciones:", error);
-      }
-  }
+    async function fetchNotifications() {
+        try {
+            const token = AppStorage.getToken();
+            const response = await fetch("http://192.168.1.70:8083/notifications", {
+                method: "GET",
+                headers: { "token": token }
+            });
 
-  // Función para renderizar las notificaciones con espacio adecuado
-  function renderNotifications(notifications) {
-      requestContainer.innerHTML = ""; // Limpia el contenedor
-      notifications.forEach(notification => {
-          const notificationElement = document.createElement("div");
-          notificationElement.classList.add("request-container");
-          notificationElement.style.marginBottom = "15px"; // Agrega margen inferior
-          notificationElement.innerHTML = `
-              <div id="Op_modal" class="request-header">
-                  <img class="img-perfil" src="${notification.profileImage}" alt="">
-                  <span class="request-title">${notification.sender}</span>
-                  <span class="request-text">${notification.message}</span>
-                  <div class="request-actions">
-                      <button class="approve-btn" data-id="${notification.id}">✔</button>
-                      <button class="desapprove-btn" data-id="${notification.id}">🗑</button>
-                  </div>
-              </div>
-          `;
-          requestContainer.appendChild(notificationElement);
-      });
+            const data = await response.json();
+            console.log("Respuesta de notificaciones:", data);
+            renderNotifications(data);
+        } catch (error) {
+            console.error("Error al cargar notificaciones:", error);
+        }
+    }
 
-      addEventListeners();
-  }
+    function renderNotifications(notifications) {
+        requestContainer.innerHTML = "";
+        notifications.forEach(notification => {
+            const notificationElement = document.createElement("div");
+            notificationElement.classList.add("request-container");
+            notificationElement.style.marginBottom = "15px";
+            notificationElement.innerHTML = `
+                <div class="request-header" style="cursor: pointer;">
+                    <img class="img-perfil" src="${notification.profileImage}" alt="">
+                    <span class="request-title">${notification.sender}</span>
+                    <span class="request-text">${notification.message}</span>
+                    <div class="request-actions">
+                        <button class="approve-btn" data-id="${notification.id}">✔</button>
+                        <button class="desapprove-btn" data-id="${notification.id}">🗑</button>
+                    </div>
+                </div>
+            `;
+            requestContainer.appendChild(notificationElement);
+        });
 
-   // Renderizar anuncios
+        addEventListeners();
+    }
+
+   /* Renderizar anuncios
    function renderAnnouncements(announcements) {
     announcementsContainer.innerHTML = "";
     announcements.forEach(announcement => {
@@ -72,8 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         `;
         announcementsContainer.appendChild(announcementElement);
-    });
-}
+        });
+    }*/
 
   // Agregar eventos a los botones de aprobación y rechazo
   function addEventListeners() {
@@ -104,6 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Cargar las notificaciones al iniciar la página
-  fetchData("/api/notificaciones", renderRequests);
-  fetchData("/api/anuncios", renderAnnouncements);
+  fetchNotifications();
+  //renderAnnouncements();
 });

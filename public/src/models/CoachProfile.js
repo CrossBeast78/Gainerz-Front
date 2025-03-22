@@ -6,6 +6,10 @@ export class CoachProfile extends Profiles {
         this.groups = []; 
     }
 
+    set groups(groups) {
+        this.groups = groups;
+    }
+
     nuevoGrupo(groupId, groupName, members) {
         this.groups.push({
             group_id: groupId,

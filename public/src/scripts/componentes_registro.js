@@ -1,6 +1,6 @@
 class Registro {
     constructor() {
-        this.container = document.getElementById("registro");
+        this.container = document.getElementById("register-container");
         this.datosPrimeraParte = {};
         this.init();
     }
@@ -13,12 +13,22 @@ class Registro {
     htmlPrimeraParte() {
         return `
             <form id="form1">
-                <input type="text" id="name" placeholder="Name" class="formControl" required><br>
-                <input type="email" id="email" placeholder="Email" class="formControl" required><br>
-                <input type="password" id="password" placeholder="Password" class="formControl" required><br>
-                <input type="password" id="password-confirm" placeholder="Confirm Password" class="formControl" required><br>
-                <label><input type="checkbox" id="terms"> I accept the terms</label><br>
-                <button type="button" id="continue">Continue Registration</button>
+                <div class="mb-3">
+                <input type="text" id="name" placeholder="Name" class="formControl ubuntu-condensed-regular" required><br>
+                </div>
+                <div class="mb-3">
+                <input type="email" id="email" placeholder="Email" class="formControl ubuntu-condensed-regular" required><br>
+                </div>
+                <div class="mb-3">
+                <input type="password" id="password" placeholder="Password" class="formControl ubuntu-condensed-regular" required><br>
+                </div>
+                <div class="mb-3">
+                <input type="password" id="password-confirm" placeholder="Confirm Password" class="formControl ubuntu-condensed-regular" required><br>
+                </div>
+                <div class="mb-3">
+                <label style="color: #caa60a;" ><input type="checkbox" id="terms" class="checkbox"> I accept the terms</label><br>
+                </div>
+                <button type="button" id="continue" class="squada-one-regular register-button mb-2">Continue Registration</button>
             </form>
         `;
     }
@@ -26,18 +36,32 @@ class Registro {
     htmlSegundaParte() {
         return `
             <form id="form2">
-                <input type="number" id="age" placeholder="Age" class="formControl" required><br>
-                <input type="number" id="weight" placeholder="Weight (kg)" class="formControl" required><br>
-                <input type="number" id="height" placeholder="Height (cm)" class="formControl" required><br>
-                <select id="gender" class="formControl" required>
+                <div class="mb-3">
+                <input type="number" id="age" placeholder="Age" class="formControl ubuntu-condensed-regular" required><br>
+                </div>
+                <div class="mb-3">
+                <input type="number" id="weight" placeholder="Weight (kg)" class="formControl ubuntu-condensed-regular" required><br>
+                </div>
+                <div class="mb-3">
+                <input type="number" id="height" placeholder="Height (cm)" class="formControl ubuntu-condensed-regular" required><br>
+                </div>
+                <div class="mb-3">
+                <select id="gender" class="formControl ubuntu-condensed-regular" required>
                     <option value="">Select gender</option>
                     <option value="Hombre">Hombre</option>
                     <option value="Mujer">Mujer</option>
                     <option value="Prefiero no contestar">Prefiero no contestar</option>
                 </select><br>
-                <input type="text" id="injuries_and_contradictions" placeholder="Injuries or contradictions (optional)" class="formControl"><br>
-                <input type="text" id="objective" placeholder="Objective" class="formControl"><br>
-                <button type="button" id="finish">Finish Registration</button>
+                </div>
+                <div class="mb-3">
+                <input type="text" id="injuries_and_contradictions" placeholder="Injuries or contradictions (optional)" class="formControl ubuntu-condensed-regular"><br>
+                </div>
+                <div class="mb-3">
+                <input type="text" id="objective" placeholder="Objective" class="formControl ubuntu-condensed-regular"><br>
+                </div>
+                <div class="mb-3">
+                <button type="button" id="finish" class="squada-one-regular register-button mb-2">Finish Registration</button>
+                </div>
             </form>
         `;
     }

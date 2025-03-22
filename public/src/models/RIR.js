@@ -5,4 +5,9 @@ export class RIR extends Set {
         super(num, serie_type, description);
         this.rir_range = rir_range;
     }
+
+    set rir_range(rir_range) {
+        this.rir_range = rir_range;
+    }
+    
 }
