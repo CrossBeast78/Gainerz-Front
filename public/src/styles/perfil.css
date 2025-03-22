@@ -62,6 +62,11 @@
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.668);
 }
 
+.editar-datos:hover{
+    background-color: rgb(114, 116, 100);
+    cursor: pointer;
+}
+
 .perfil-datos{
     width: 30vw;
     padding: 7vw;
