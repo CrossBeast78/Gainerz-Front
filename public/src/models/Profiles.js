@@ -1,7 +1,9 @@
 class Profiles {
-    constructor(id, profileType) {
+    constructor(id, profileType, name, photoLink) {
         this.id = id;
         this.profileType = profileType; // coach o user
+        this.name = name;
+        this.photoLink=photoLink;
         this.searchHistory = [];
         this.favoriteExercises = []; 
         this.favoriteBlocks = []; 
