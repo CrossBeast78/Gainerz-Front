@@ -1,29 +1,3 @@
-/*
-.sidebar {
-    width: 200px;
-    background-color: black;
-    color: white;
-    height: 100vh;
-    position: fixed;
-}
-
-.sidebar a {
-    display: block;
-    padding: 15px;
-    color: white;
-    text-decoration: none;
-}
-
-.sidebar a:hover {
-    background-color: #555;
-}
-
-.header-superior {
-    display: flex;
-    justify-content: space-around;
-    background-color: var(--main_color);
-}
-*/
 .content{
     margin-left: 250px ;
 }
@@ -76,13 +50,20 @@ header {
     display: flex;
     justify-content: center;
     background-color: black;
-    color: var(--main_color);
     font-weight: bolder;
     font-size: 4vw;
     border-radius: 0px;
 }
 
-.logodiv p{
+.content {
+    display: flex;
+    width: auto;
+    flex-direction: column;
+}
+
+.logodiv a{
+    color: var(--main_color);
+    text-decoration: none;
     margin: 10px;
     text-shadow: 3px 3px #5f4f0b;
 }
@@ -268,7 +249,7 @@ header {
     .logodiv{
         height: 27%;
     }
-    .logodiv p{
+    .logo{
         padding-top: 10px;
     }
     .rest{
@@ -304,10 +285,5 @@ header {
         background-color: transparent;
     }
     /*Fin del header lateral*/
-    .header-superior{
-        position: absolute;
-        top: 11%;
-        height: 9%;
-    }
 }
 

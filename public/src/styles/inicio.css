@@ -1,0 +1,88 @@
+.content{
+    width: 100%;
+}
+
+.content-rutinas{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.Hoy, .Rutinas-Guardadas {
+    margin: 2vw;
+    margin-top: 0vw;
+    background-color: rgba(0, 0, 0, 0.297);
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.Hoy {
+    margin-right: 0;
+    width: 40%
+}
+
+.Rutinas-Guardadas {
+    width: 60%
+}
+
+h1{
+    margin: 0px;
+}
+
+.titlerutinas {
+    text-align: center;
+    font-size: 3.5vw;
+}
+
+.rt-div, .add-div, .saved-rt {
+    background-color: rgba(0, 0, 0, 0.323);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 7px 10px;
+    font-size: 2vw;
+}
+
+.rt, .go-to-rutina{
+    text-decoration: none;
+    color: var(--main_color);
+}
+
+.add-div {
+    padding: 15px;
+}
+
+.plus-rtn {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 3vw;
+}
+
+.plus-rtn:hover{
+    color: rgba(255, 255, 255, 0.723);
+}
+
+.add-div:hover, .rt-div:hover, .saved-rt:hover{
+    background-color: rgba(0, 0, 0, 0.451);
+    cursor: pointer;
+}
+
+.rt1:hover, .go-to-rutina:hover{
+    color: #9f8409;
+}
+
+.saved-rt{
+    text-align: center;
+}
+
+.inicio-title{
+    background-clip: border-box;
+    font-size: 30vw;
+    line-height:80%;
+    text-align: center;
+    letter-spacing: 2vw;
+    background: linear-gradient(90deg, #322902, #ad8e08); /* Gradiente */
+    -webkit-background-clip: text;  /* Clip del gradiente al texto */
+    -webkit-text-fill-color: transparent;
+}

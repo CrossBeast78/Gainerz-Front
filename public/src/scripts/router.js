@@ -10,6 +10,7 @@ router.get('/login', (req, res) => res.sendFile(path.resolve(__dirname + "/../
 router.get('/register', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/Login-Register/register.html")));
 router.get('/register2', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/Login-Register/registro_detallado.html")));
 router.get('/bandeja', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/App/bandeja.html")));
+router.get('/inicio', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/App/inicio.html")));
 router.get('/calendar', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/App/calendar.html")));
 router.get('/cuentas', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/App/cuentas.html")));
 router.get('/gyms', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/App/gyms.html")));

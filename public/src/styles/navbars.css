@@ -51,8 +51,9 @@ header {
     border-radius: 0px;
 }
 
-.logodiv p{
+.logo{
     margin: 10px;
+    text-decoration: none;
     text-shadow: 3px 3px #5f4f0b;
 }
 .navLink{
@@ -100,7 +101,7 @@ header {
     border-bottom-right-radius: 30px;
 }
 
-.black:hover{
+.black:hover, .logodiv:hover{
     border-top: transparent;
     background-color: transparent;
 }
