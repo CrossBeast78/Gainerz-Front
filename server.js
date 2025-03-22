@@ -10,6 +10,7 @@ app.use(router);
 app.use(express.static('app'));
 app.use(express.static(path.join(__dirname, "public")));
 app.use('/views', express.static('views'));
+app.use('/public', express.static('public'));
 
 
 
