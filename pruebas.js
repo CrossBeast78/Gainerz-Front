@@ -1,4 +1,4 @@
-const Request = require('./public/src/models/request.js'); // Debe ser 'Request' en mayúscula
+const Request = require('./public/src/models/Request.js'); // Debe ser 'Request' en mayúscula
 const Set = require('./public/src/models/Set.js');
 // Usa 'Request' en vez de 'request'
 const requ = new Request(12, 'c2u', 'c2u', new Date(), false, 'c2u', '3');

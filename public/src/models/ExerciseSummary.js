@@ -28,3 +28,5 @@ export class ExerciseSummary {
     }
     
 }
+
+module.exports= ExerciseSummary;
