@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const response = await fetch("http://192.168.1.72:8080/account", {
+            const response = await fetch("http://192.168.1.128:8080/account", {
                 method: "GET",
                 headers: {
                     "email": email,

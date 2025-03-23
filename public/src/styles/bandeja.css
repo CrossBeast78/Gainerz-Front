@@ -1,6 +1,6 @@
 
 .notifications-container {
-    width: 102%;
+    width: 106%;
     min-height: 200px;
     display: flex;
     flex-direction: column;
@@ -11,6 +11,7 @@
 
 .content{
     flex-direction: column;
+    margin-right: 30%;
 }
 
 /* Contenedor de cada notificación */

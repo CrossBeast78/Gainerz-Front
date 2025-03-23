@@ -136,7 +136,7 @@ class Registro {
             injuries_and_contradictions: injuries,
             objective
         };
-        fetch("http://192.168.1.72:8080/user", {
+        fetch("http://192.168.1.128:8080/user", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(finalUserData)
