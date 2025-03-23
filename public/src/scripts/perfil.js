@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const edad = document.createElement("p");
         edad.className = "perfil-info squada-one-regular";
-        edad.textContent = `${perfil.age} años`;
+        edad.textContent = `correo: ${perfil.email}`;
 
         perfilPrincipal.appendChild(fotoPerfil);
         perfilPrincipal.appendChild(btnEditar);
@@ -80,20 +80,20 @@ document.addEventListener("DOMContentLoaded", () => {
         col2.style.width = "50%";
 
         const atributos = [
-            "Correo:",
+            "Edad:",
             "Género:",
             "Altura:",
             "Peso:",
             "IMC:"
-          ];
-          
-          const valores = [
-            perfil.email,          // ✅ Correo
+        ];
+        
+        const valores = [
+            perfil.age,          // ✅ Correo
             perfil.gender,         // ✅ Género
             `${perfil.height} cm`, // ✅ Altura
             `${perfil.weight} kg`, // ✅ Peso
             calcularIMC(perfil.height, perfil.weight) // ✅ IMC
-          ];
+        ];
 
         atributos.forEach((attr, i) => {
             const label = document.createElement("p");
