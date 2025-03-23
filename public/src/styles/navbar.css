@@ -69,6 +69,11 @@ header {
     margin: 10px;
     text-shadow: 3px 3px #5f4f0b;
 }
+
+.logo:hover{
+    color: #cac29e;
+    text-shadow: 3px 3px #8c804a;
+}
 .navLink{
     text-decoration: none;
     color: white;
