@@ -2,6 +2,10 @@
     --main_color: #caa60a;
 }
 
+.logo {
+    font-weight: bold;
+}
+
 .squada-one-regular {
     font-family: "Squada One", sans-serif;
     font-weight: 400;
