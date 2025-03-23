@@ -1,5 +1,6 @@
 .content{
-    margin-left: 15vw ;
+    margin-left: 17vw ;
+    margin-right: 0vw ;
     width: 83vw;
 }
 
@@ -219,6 +220,9 @@ header {
     }
     .black{
         font-size: 3vw;
+    }
+    .content{
+        width: 73vw;
     }
     /*Fin del header lateral*/
     /*Header superior*/
