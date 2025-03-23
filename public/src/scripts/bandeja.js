@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     async function fetchNotifications() {
         try {
             const token = AppStorage.getToken();
-            const response = await fetch("http://192.168.1.70:8083/notifications", {
+            const response = await fetch("http://192.168.1.119:8083/notifications", {
                 method: "GET",
                 headers: { "token": token }
             });

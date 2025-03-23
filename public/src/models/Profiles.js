@@ -75,4 +75,4 @@ class Profiles {
     }
 }
 
-module.exports=Profiles;
+window.Profiles = Profiles;
