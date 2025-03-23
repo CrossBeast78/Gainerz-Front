@@ -73,6 +73,10 @@ header {
     text-decoration: none;
     color: white;
 }
+
+.navLink:hover{
+    color: white;
+}
 .rest{
     height: 100%;
     background-color: black;
@@ -134,6 +138,11 @@ header {
     font-weight: bolder;
     text-shadow: 2px 2px #887004;
 }
+
+.weekDay:hover{
+    color: white;
+}
+
 .day{
     display: fex;
     text-align: center;
