@@ -1,0 +1,191 @@
+.crear-rutina{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 6vw;
+    left: 18vw;
+    width: 81%;
+    background-color: rgba(0, 0, 0, 0.445);
+    border-radius: 20px;
+    padding: 20px;
+    padding-bottom: 10px;
+}
+
+.menu{
+    background-color: #705e0a;
+    height: 3vw;
+}
+
+.dropdown-menu{
+    width: 100%;
+}
+
+.create{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.368);
+    border-radius: 10px;
+    height: 5vw;
+    width: 100%;
+    color: white;
+}
+
+.menu:hover, .menu::selection{
+    background-color: #9e8309;
+}
+
+.title-input, .desc-input{
+    height: 3vw;
+    padding-left: 10px;
+}
+
+.title-input, .desc-input, .menu{
+    border: 2px solid black;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.desc-input{
+    height: 5vw;
+}
+
+.dropdown {
+    margin-left: 20px;
+    width: 30%;
+}
+
+.add-rt{
+    font-size: 4vw;
+}
+
+.armar{
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.445);
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+}
+
+.add-ejercicios{
+    margin-right: 5px;
+}
+
+.ejercicios{
+    margin-left: 5px;
+}
+
+#datalistOptions{
+    width: 200px;
+    background-color: #705e0a;
+}
+
+.ejercicio-agregado{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid white;
+    background-color: #705e0a;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.series-ej{
+    width: 75%;
+}
+.ej{
+    font-size: 2vw;
+    border-bottom: 1px solid white;
+}
+
+.add-ej{
+    font-size: 2.5vw;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+}
+
+.add-rt:hover, .add-ej:hover{
+    color:rgba(255, 255, 255, 0.589);
+    cursor: pointer;
+}
+
+.crear-series{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 30%;
+    padding-top: 10px;
+    background-color: rgba(0, 0, 0, 0.244);
+    height: 0%;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.datos-serie h2{
+    font-size: 1.5vw;
+}
+
+.datos-serie p{
+    padding: 0px;
+    margin: 2px;
+}
+
+.crear-series p{
+    padding: 0%;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+h2{
+    font-size: 3vw;
+}
+
+h1 {
+    font-size: 5vw;
+}
+
+.botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-rtns{
+    width: 50%;
+    margin-top: 15px;
+    background-color: white;
+    height: 3vw;
+    border: none;
+    border-radius: 10px;
+    font-size: 2vw;
+}
+
+.btn-crear{
+    margin-right: 2vw;
+    margin-left: 10px;
+}
+
+.btn-crear:hover{
+    background-color: rgba(199, 255, 195, 0.551);
+}
+.btn-cancelar:hover{
+    background-color: rgba(255, 195, 195, 0.551);
+}
+
+@media (max-width: 965px){
+    .crear-rutina{
+        left: 28vw;
+        top: 8.2vw;
+        width: 71%;
+    }
+    .title-input, .menu{
+        height: 4vw;
+    }
+    .desc-input, .create{
+        height: 7vw;
+    }
+}

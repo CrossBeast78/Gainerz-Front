@@ -1,5 +1,5 @@
 .content{
-    margin-left: 250px ;
+    margin-left: 15vw ;
 }
 
 body{
@@ -122,7 +122,7 @@ header {
 .header-superior{
     display: flex;
     flex-direction: row;
-    width: 85vw;
+    width: 83vw;
     cursor: pointer;
 }
 .weekDay{
@@ -150,6 +150,8 @@ header {
     display: flex;
     flex-direction: row;
     padding: 5%;
+    padding-right: 0;
+    margin-right: 0;
 }
 
 .rtn, .rtn-button{
@@ -225,6 +227,15 @@ header {
     .day{
         padding-bottom: 3%;
         padding-top: 3%;
+    }
+    .buttons{
+        margin-left: 9vw;
+        padding-right: 0vw;
+    }
+
+    .header-superior{
+        width: 73vw;
+        margin-left: 12vw;
     }
 }
 
