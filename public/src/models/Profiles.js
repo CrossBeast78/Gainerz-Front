@@ -18,7 +18,7 @@ class Profiles {
         this._sentRequests = [];
     }
 
-    // ✅ Getters
+    // Getters
     get id() { return this._id; }
     get profileType() { return this._profileType; }
     get name() { return this._name; }
@@ -29,7 +29,7 @@ class Profiles {
     get height() { return this._height; }
     get weight() { return this._weight; }
 
-    // ✅ Setters
+    // Setters
     set id(id) { this._id = id; }
     set profileType(profileType) { this._profileType = profileType; }
     set name(name) { this._name = name; }
@@ -47,7 +47,7 @@ class Profiles {
     set notifications(notifications) { this._notifications = notifications; }
     set sentRequests(requests) { this._sentRequests = requests; }
 
-    // ✅ Métodos de utilidad
+    // Métodos de utilidad
     nuevaBusqueda(uuid, type, name, photoLink) {
         this._searchHistory.push({ uuid, type, name, photoLink });
     }
@@ -75,4 +75,4 @@ class Profiles {
     }
 }
 
-window.Profiles = Profiles;
+module.exports=Profiles;

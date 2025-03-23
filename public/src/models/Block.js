@@ -1,4 +1,4 @@
-export class Block {
+class Block {
     constructor(block_id, exercise_summary, num_series, sets) {
         this.block_id = block_id; 
         this.exercise_summary = exercise_summary; // instancia de ExerciseSummary
@@ -22,6 +22,6 @@ export class Block {
         this.sets = sets;
     }
 
-    
-
 }
+
+module.exports = Block;

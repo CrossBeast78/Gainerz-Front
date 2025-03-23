@@ -1,6 +1,6 @@
-import { Set } from "./Set.js";
+const Set = require('./Set')
 
-export class Dropset extends Set {
+class Dropset extends Set {
     
     constructor(num, serie_type, description, sub_sets=[]) {
         super(num, serie_type, description);
@@ -11,3 +11,5 @@ export class Dropset extends Set {
         this.sub_sets = sub_sets;
     }   
 }
+
+module.exports=Set;

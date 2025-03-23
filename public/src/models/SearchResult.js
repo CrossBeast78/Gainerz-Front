@@ -1,4 +1,4 @@
-export class SearchResult {
+class SearchResult {
     constructor(uuid, type, name, photoUrl) {
       this.uuid = uuid; 
       this.type = type; // Tipo busqueda (coach, usuario, gym, gymchain)
@@ -7,20 +7,21 @@ export class SearchResult {
     }
 
     set uuid(uuid) {
-        this.uuid = uuid;
+        this._uuid = uuid;
     }
 
     set type(type) {
-        this.type = type;
+        this._type = type;
     }
 
     set name(name) {
-        this.name = name;
+        this._name = name;
     }
 
     set photoUrl(photoUrl) {
-        this.photoUrl = photoUrl;
+        this._photoUrl = photoUrl;
     }
 
   }
   
+  module.exports=SearchResult;

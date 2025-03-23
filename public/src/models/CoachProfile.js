@@ -1,4 +1,4 @@
-import { Profiles } from "./Profiles.js"
+const Profiles = require('./Profiles')
 
 export class CoachProfile extends Profiles {
     constructor(id) {

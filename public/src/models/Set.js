@@ -1,19 +1,33 @@
-export class Set {
+class Set {
     constructor(num, serie_type, description) {
-        this.num = num;
-        this.serie_type = serie_type;
-        this.description = description;
+        this._num = num;
+        this._serie_type = serie_type;
+        this._description = description;
     }
 
-    set num(num) {
-        this.num = num;
+    get num() {
+        return this._num;
     }
 
-    set serie_type(serie_type) {
-        this.serie_type = serie_type;
+    set num(value) {
+        this._num = value;
     }
 
-    set description(description) {
-        this.description = description;
+    get serie_type() {
+        return this._serie_type;
+    }
+
+    set serie_type(value) {
+        this._serie_type = value;
+    }
+
+    get description() {
+        return this._description;
+    }
+
+    set description(value) {
+        this._description = value;
     }
 }
+
+module.exports = Set;

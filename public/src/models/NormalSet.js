@@ -1,6 +1,6 @@
-import { Set } from "./Set.js";
+const Set = require('./Set')
 
-export class NormalSet extends Set {
+class NormalSet extends Set {
     
     constructor(num, serie_type, description, reps_range) {
         super(num, serie_type, description);
@@ -8,8 +8,9 @@ export class NormalSet extends Set {
     }
 
     set reps_range(reps_range) {
-        this.reps_range = reps_range;
+        this._reps_range = reps_range;
     }
 
-    
 }
+
+module.exports=NormalSet;
