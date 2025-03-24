@@ -21,5 +21,5 @@ router.get('/solicitudes', (req, res) => res.sendFile(path.resolve(__dirname +�
 router.get('/notificaciones', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/App/bandeja.html")));
 router.get('/otros', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/LandingPage/bandeja_otros.html")));
 router.get('/anuncios', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/LandingPage/bandeja_anuncios.html")));
-
+router.get('/rutinas', (req, res) => res.sendFile(path.resolve(__dirname + "/../../views/App/rutinas.html")));
 module.exports = router;
