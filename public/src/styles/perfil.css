@@ -73,12 +73,13 @@
     width: 30vw;
     padding: 7vw;
     padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .Atributo{
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 30%;
     margin-top: 10px;
     padding-bottom: 0px;
     border-bottom: 1px solid black;
@@ -89,10 +90,18 @@
     font-size: 3vw;
     margin-bottom: 0px;
 }
+perfil.gmail{
+    color: blue;
+}
+
+.perfil-atributo{
+
+}
+
 .perfil-datos-usuario{
     align-items: end;
     justify-content: end;
-    text-align: end;
+    text-align:left;
     color: black;
 }
 

@@ -1,6 +1,6 @@
-
 .notifications-container {
-    width: 106%;
+    width: 95%;
+    margin-left: 20px;
     min-height: 200px;
     display: flex;
     flex-direction: column;
@@ -9,24 +9,19 @@
     gap: 15px; /* Espacio entre notificaciones */
 }
 
-.content{
-    flex-direction: column;
-    margin-right: 30%;
-}
 
 /* Contenedor de cada notificación */
 .request-container {
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     padding: 10px;
-    margin: 5px auto;
-    width: 90%;
+    margin: 0px auto;
+    width: 100%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 15px;
-    position: relative;
     min-height: 80px; /* Altura mínima ajustada */
 }
 
@@ -35,7 +30,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #4a3800;
     width: 100%;
     color: white;
     padding: 8px;
@@ -56,11 +50,13 @@
 .request-title {
     font-size: 16px;
     font-weight: bold;
+    width: 20%;
 }
 
 .request-text {
     font-size: 14px;
     margin: 5px 0;
+    text-align: center;
 }
 
 /* Botones de aprobación/rechazo */
@@ -221,6 +217,26 @@
     object-fit: cover;
 }
 
-.header-superior{
+@media (max-width: 965px) {
+    .request-container {
+        width: 80%;
+        min-height: 80px; /* Altura mínima ajustada */
+    }
+    .content{
+        
+    }
 
+    .request-header{
+        width: 80%;
+    }
+    .notifications-container{
+        width: 70vw;
+    }
+
+    .approve-btn, .desapprove-btn{
+        width: 100%;
+    }
+    .desapprove-btn{
+
+    }
 }

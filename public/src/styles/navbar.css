@@ -1,5 +1,7 @@
 .content{
-    margin-left: 15vw ;
+    margin-left: 17vw ;
+    margin-right: 0vw ;
+    width: 83vw;
 }
 
 body{
@@ -68,8 +70,17 @@ header {
     margin: 10px;
     text-shadow: 3px 3px #5f4f0b;
 }
+
+.logo:hover{
+    color: #cac29e;
+    text-shadow: 3px 3px #8c804a;
+}
 .navLink{
     text-decoration: none;
+    color: white;
+}
+
+.navLink:hover{
     color: white;
 }
 .rest{
@@ -133,6 +144,11 @@ header {
     font-weight: bolder;
     text-shadow: 2px 2px #887004;
 }
+
+.weekDay:hover{
+    color: white;
+}
+
 .day{
     display: fex;
     text-align: center;
@@ -219,6 +235,9 @@ header {
     }
     .black{
         font-size: 3vw;
+    }
+    .content{
+        width: 73vw;
     }
     /*Fin del header lateral*/
     /*Header superior*/
