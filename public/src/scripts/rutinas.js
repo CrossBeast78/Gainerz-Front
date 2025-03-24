@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let bloqueActualId = null;
 
     const crearRutinaHTML = `
-        <div class="crear-rutina content2" id="crear-rutina">
+        <div class="crear-rutina content2">
             <div class="new-rt">
                 <div style="display: flex; flex-direction: row;">
                     <div style="display: flex; flex-direction: column; width: 70%;">
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
             <div class="botones squada-one-regular">
-                <button class="btn-rtns btn-crear" id="btn-crear">CREAR</button>
+                <button class="btn-rtns btn-crear" id="btn-crear" onclick="crearYEnviarRutina()">CREAR</button>
                 <button class="btn-rtns btn-cancelar" id="btn-cancelar">CANCELAR</button>
             </div>
         </div>
@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contentDiv.innerHTML = crearRutinaHTML;
         
         // Inicializar una rutina vacía
-        rutinaActual = {
+        window.rutinaActual = {
             id: null,
             title: "",
             description: "",
@@ -296,14 +296,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const checkedMuscles = document.querySelectorAll('.muscle-checkbox:checked');
             
             // Extraer los valores (nombres de músculos) y guardarlos en el array
-            rutinaActual.muscles = Array.from(checkedMuscles).map(checkbox => checkbox.value);
+            window.rutinaActual.muscles = Array.from(checkedMuscles).map(checkbox => checkbox.value);
             
-            console.log("Músculos seleccionados:", rutinaActual.muscles);
+            console.log("Músculos seleccionados:", window.rutinaActual.muscles);
             
             // Actualizar el texto del botón del dropdown
             const dropdownButton = document.getElementById('dropdownMenuButton1');
-            if (rutinaActual.muscles.length > 0) {
-                dropdownButton.textContent = `Músculos: ${rutinaActual.muscles.length}`;
+            if (window.rutinaActual.muscles.length > 0) {
+                dropdownButton.textContent = `Músculos: ${window.rutinaActual.muscles.length}`;
             } else {
                 dropdownButton.textContent = 'Músculos Involucrados';
             }
@@ -315,13 +315,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 selectedMusclesList.innerHTML = '';
                 
                 // Si no hay músculos seleccionados, mostrar un mensaje
-                if (rutinaActual.muscles.length === 0) {
+                if (window.rutinaActual.muscles.length === 0) {
                     selectedMusclesList.innerHTML = '<p class="text-muted small mb-0">No hay músculos seleccionados</p>';
                     return;
                 }
                 
                 // Crear badges para cada músculo seleccionado
-                rutinaActual.muscles.forEach(muscle => {
+                window.rutinaActual.muscles.forEach(muscle => {
                     const badge = document.createElement('span');
                     badge.className = 'badge bg-primary me-1 mb-1 d-inline-block';
                     badge.textContent = muscle;
@@ -612,39 +612,39 @@ document.addEventListener('DOMContentLoaded', () => {
         const descInput = document.getElementById('desc-input');
         
         titleInput.addEventListener('input', (e) => {
-            rutinaActual.title = e.target.value;
+            window.rutinaActual.title = e.target.value;
         });
         
         descInput.addEventListener('input', (e) => {
-            rutinaActual.description = e.target.value;
+            window.rutinaActual.description = e.target.value;
         });
         
         // Configurar botón de crear
         document.getElementById('btn-crear').addEventListener('click', () => {
-            if (!rutinaActual.title) {
+            if (!window.rutinaActual.title) {
                 alert("Por favor, agrega un título a tu rutina");
                 return;
             }
             
-            if (rutinaActual.muscles.length === 0) {
+            if (window.rutinaActual.muscles.length === 0) {
                 alert("Por favor, selecciona al menos un músculo involucrado");
                 return;
             }
             
-            if (rutinaActual.blocks.length === 0) {
+            if (window.rutinaActual.blocks.length === 0) {
                 alert("Por favor, agrega al menos un ejercicio a tu rutina");
                 return;
             }
             
             // Aquí iría el código para guardar la rutina en el servidor
-            console.log("Guardando rutina:", rutinaActual);
+            console.log("Guardando rutina:", window.rutinaActual);
             
             // Mostrar mensaje de éxito
             alert("Rutina creada con éxito");
             
             // Volver a la pantalla principal
             contentDiv.innerHTML = originalContent;
-            rutinaActual = null;
+            window.rutinaActual = null;
         });
         
         // Exponer la función agregarSerie globalmente para manejar la adición de series
@@ -700,19 +700,19 @@ document.addEventListener('DOMContentLoaded', () => {
     window.agregarBloqueARutina = function(bloque) {
         console.log("Agregando bloque a la rutina:", bloque);
         
-        if (!rutinaActual) {
+        if (!window.rutinaActual) {
             console.error("No hay rutina activa");
             alert("Error: No hay una rutina activa. Por favor, crea una rutina primero.");
             return false;
         }
         
-        if (!rutinaActual.blocks) {
-            rutinaActual.blocks = [];
+        if (!window.rutinaActual.blocks) {
+            window.rutinaActual.blocks = [];
         }
         
         // Agregar el bloque a la rutina
-        rutinaActual.blocks.push(bloque);
-        console.log("Bloque agregado. Total de bloques:", rutinaActual.blocks.length);
+        window.rutinaActual.blocks.push(bloque);
+        console.log("Bloque agregado. Total de bloques:", window.rutinaActual.blocks.length);
         
         return true;
     };
@@ -763,16 +763,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para actualizar la UI de la rutina completa
     function actualizarInterfazRutina() {
         const rutinaDiv = document.getElementById('rutina');
-        if (!rutinaDiv || !rutinaActual || !rutinaActual.blocks) {
+        if (!rutinaDiv || !window.rutinaActual || !window.rutinaActual.blocks) {
             console.error("No se puede actualizar la interfaz: falta el div o la rutina actual");
             return;
         }
         
-        console.log("Actualizando interfaz de rutina. Bloques:", rutinaActual.blocks.length);
+        console.log("Actualizando interfaz de rutina. Bloques:", window.rutinaActual.blocks.length);
         
         // Limpiar y volver a dibujar todos los bloques
         rutinaDiv.innerHTML = '';
-        rutinaActual.blocks.forEach((bloque, index) => {
+        window.rutinaActual.blocks.forEach((bloque, index) => {
             console.log(`Renderizando bloque ${index}:`, bloque);
             const bloqueHTML = bloque.ToHTML();
             rutinaDiv.innerHTML += bloqueHTML;
@@ -785,15 +785,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function encontrarBloquePorId(id) {
         console.log("Buscando bloque con ID:", id);
         
-        if (!rutinaActual || !rutinaActual.blocks || rutinaActual.blocks.length === 0) {
+        if (!window.rutinaActual || !window.rutinaActual.blocks || window.rutinaActual.blocks.length === 0) {
             console.error("No hay bloques disponibles en la rutina actual");
             return null;
         }
         
-        console.log("Bloques disponibles:", rutinaActual.blocks);
+        console.log("Bloques disponibles:", window.rutinaActual.blocks);
         
         // Buscar el bloque por ID o ID temporal
-        let bloque = rutinaActual.blocks.find(block => {
+        let bloque = window.rutinaActual.blocks.find(block => {
             if (id.startsWith('temp-')) {
                 // Si es un ID temporal, comparar con la propiedad temp_id
                 return block.temp_id === id;
@@ -1129,7 +1129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.eliminarBloque = function(blockId) {
         console.log(`Eliminando bloque ${blockId}`);
         
-        if (!rutinaActual || !rutinaActual.blocks) {
+        if (!window.rutinaActual || !window.rutinaActual.blocks) {
             alert('No hay rutina activa');
             return;
         }
@@ -1138,7 +1138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (confirm('¿Estás seguro de que deseas eliminar este bloque y todas sus series?')) {
             try {
                 // Encontrar el índice del bloque
-                const bloqueIndex = rutinaActual.blocks.findIndex(bloque => {
+                const bloqueIndex = window.rutinaActual.blocks.findIndex(bloque => {
                     if (blockId.startsWith('temp-')) {
                         return bloque.temp_id === blockId;
                     }
@@ -1151,7 +1151,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 
                 // Eliminar el bloque
-                rutinaActual.blocks.splice(bloqueIndex, 1);
+                window.rutinaActual.blocks.splice(bloqueIndex, 1);
                 
                 // Actualizar la interfaz
                 actualizarInterfazRutina();

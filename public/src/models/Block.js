@@ -2,7 +2,7 @@ class Block {
     constructor(flag, block_id, exercise_summary, number_of_sets, sets = []) { 
         // Si se llama sin parámetros o con flag=false, crear un bloque vacío
         if (arguments.length === 0 || flag === false) {
-            this.block_id = null;   
+            this.block_id = `temp-${Date.now()}`;   
             this.exercise_summary = null;
             this.number_of_sets = 0;
             this.sets = [];
