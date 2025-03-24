@@ -40,17 +40,33 @@
     margin-top: 10px;
 }
 
-.foto-perfil{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.327);
-    height: 30vw;
-    width: 30vw;
+.profile-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+  }
+  
+  #profile-pic {
+    width: 550px;
+    height: 550px;
     border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 20px auto;
+    border: 3px solid white;
+  }
+  
+  .edit-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
     color: white;
-    font-family: "Ubuntu Condensed";
-}
+    background-color: var(--main_color);
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
 
 .editar-datos{
     width: 30vw;

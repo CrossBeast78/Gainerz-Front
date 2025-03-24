@@ -39,8 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             
                 AppStorage.logedd(token, account);
-                alert("Login exitoso");
-                window.location.href = "/bandeja";
+                window.location.href = "/inicio";
             } else if (response.status === 400) {
                 alert("Credenciales incorrectas.");
             } else if (response.status === 404) {

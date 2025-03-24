@@ -34,9 +34,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const fotoPerfil = document.createElement("div");
         fotoPerfil.className = "foto-perfil";
 
+       
+        // Verifica si hay imagen válida, si no, usa una por defecto
         const img = document.createElement("img");
-        img.src = perfil.photoLink;
+        img.src = (perfil.photoLink && perfil.photoLink !== "<nil>")
+        ? perfil.photoLink
+        : "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y";
         img.alt = "Foto de perfil";
+        img.id = "profile-pic";
+        img.classList.add("perfil-img"); // si tienes estilos aplicados
 
         const iconoEditar = document.createElement("i");
         iconoEditar.className = "fa-solid fa-pen-to-square";
@@ -88,11 +94,11 @@ document.addEventListener("DOMContentLoaded", () => {
         ];
         
         const valores = [
-            perfil.age,          // ✅ Correo
-            perfil.gender,         // ✅ Género
-            `${perfil.height} cm`, // ✅ Altura
-            `${perfil.weight} kg`, // ✅ Peso
-            calcularIMC(perfil.height, perfil.weight) // ✅ IMC
+            perfil.age,          
+            perfil.gender,         
+            `${perfil.height} cm`, 
+            `${perfil.weight} kg`, 
+            calcularIMC(perfil.height, perfil.weight) 
         ];
 
         atributos.forEach((attr, i) => {
