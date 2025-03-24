@@ -94,7 +94,7 @@ class Registro {
         this.datosPrimeraParte = datosPreVerif;
 
         // Enviar al endpoint /account/pre-verif
-        fetch("http://192.168.1.72:8080/account/pre-verif", {
+        fetch("http://192.168.1.128:8080/account/pre-verif", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(datosPreVerif)
