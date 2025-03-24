@@ -70,6 +70,18 @@ class Routine {
         }
         this.blocks = blocks;
     }
+
+    get_routine_summary() {
+        return `
+            <div class="routine-summary">
+                <h2 class="routine-name">${this.name}</h2>
+                <p class="routine-text routine-id"><strong>ID:</strong> ${this.routine_id}</p>
+                <p class="routine-text routine-description"><strong>Description:</strong> ${this.description}</p>
+                <p class="routine-text routine-muscles"><strong>Muscles:</strong> ${this.muscles.join(', ')}</p>
+            </div>
+        `;
+    }
+    
 }
 
 function get_new_routine(created_by){
@@ -83,5 +95,6 @@ function get_new_routine(created_by){
         blocks: [],
     }
 }
+
 
 window.Routine = Routine;

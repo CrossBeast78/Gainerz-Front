@@ -44,8 +44,8 @@
             </div>
             <div class="Rutinas-Guardadas">
                 <h1 class="titlerutinas">Rutinas Guardadas</h1>
-                <div class="saved-rt">
-                    <a class="go-to-rutina" href="/calendar"> LUNES DE PIERNA</a>
+                <div id="routines-container" class="saved-rt">
+                    <!-- Aquí se mostrarán las rutinas guardadas -->
                 </div>
                 <div class="add-div">
                     <a class="rt add" href="/rutinas"><i class="fa-solid fa-circle-plus plus-rtn"></i></a>
@@ -53,7 +53,11 @@
             </div>
         </div>
     </div>
-    <script src="../../src/scripts/router.js"></script>
+    
+    <script src="../../src/models/rutine_summary.js"></script>
     <script src="../../src/scripts/Appstorage.js"></script>
+    <script src="../../src/scripts/router.js"></script>
+    <script src="../../src/scripts/interact.js"></script>
+    <script src="../../src/scripts/rutinas2.js"></script>
 </body>
 </html>

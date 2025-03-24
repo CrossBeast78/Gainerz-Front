@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const token = AppStorage.getToken();
 
-        fetch(`http://192.168.1.119:8081/gym/${encodeURIComponent(query)}`, {
+        fetch(`http://192.168.1.129:8081/gym/${encodeURIComponent(query)}`, {
             method: 'GET',
             headers: {
                 'token': token,
