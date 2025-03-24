@@ -63,9 +63,21 @@ class Routine {
         }
         for (let i = 0; i < blocks.length; i++) {
             try {
-                new Block(true, blocks[i].id, blocks[i].exercise_summary, blocks[i].number_of_sets, blocks[i].sets);
+                // Verificar si el bloque ya es una instancia de Block
+                if (blocks[i] instanceof Block) {
+                    continue;
+                }
+                
+                // Si no es una instancia de Block, intentar crear uno nuevo
+                const block = blocks[i];
+                const blockId = block.block_id || block.temp_id;
+                const exerciseSummary = block.exercise_summary;
+                const numberOfSets = block.number_of_sets || block.sets.length;
+                const sets = block.sets || [];
+                
+                new Block(true, blockId, exerciseSummary, numberOfSets, sets);
             } catch (error) {
-                throw new Error('Los bloques deben ser un array de objetos Block');
+                throw new Error('Los bloques deben ser un array de objetos Block válidos');
             }
         }
         this.blocks = blocks;

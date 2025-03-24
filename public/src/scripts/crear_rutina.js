@@ -18,44 +18,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
             console.log('Usuario autenticado:', usuario.name);
 
-            // Obtener datos del formulario
-            const titulo = document.getElementById('title-input').value.trim();
-            const descripcion = document.getElementById('desc-input').value.trim();
-            
+            // Validar que exista la rutina actual
+            if (!window.rutinaActual) {
+                throw new Error('No hay una rutina en proceso de creación');
+            }
+
             // Validar datos básicos
-            if (!titulo) {
+            if (!window.rutinaActual.title) {
                 throw new Error('Por favor, ingresa un título para la rutina');
             }
             
-            if (!descripcion) {
+            if (!window.rutinaActual.description) {
                 throw new Error('Por favor, ingresa una descripción para la rutina');
             }
-
-            // Obtener músculos seleccionados
-            const musclesCheckboxes = document.querySelectorAll('.muscle-checkbox:checked');
-            const musculos = Array.from(musclesCheckboxes).map(cb => cb.value);
             
-            if (musculos.length === 0) {
+            if (window.rutinaActual.muscles.length === 0) {
                 throw new Error('Por favor, selecciona al menos un músculo involucrado');
             }
 
-            // Obtener bloques (ejercicios con sus series)
-            const rutinaDiv = document.getElementById('rutina');
-            if (!rutinaDiv || !window.rutinaActual || !window.rutinaActual.blocks || window.rutinaActual.blocks.length === 0) {
+            if (!window.rutinaActual.blocks || window.rutinaActual.blocks.length === 0) {
                 throw new Error('Por favor, agrega al menos un ejercicio a la rutina');
             }
 
             // Crear objeto para la rutina
-            const rutina = {
+            var rutina = {
                 routine_id: null,
                 created_by: {
                     id: usuario.id,
                     name: usuario.name
                 },
                 creation_date: new Date().toISOString(),
-                name: titulo,
-                description: descripcion,
-                muscles: musculos,
+                name: window.rutinaActual.title,
+                description: window.rutinaActual.description,
+                muscles: window.rutinaActual.muscles,
                 blocks: window.rutinaActual.blocks
             };
 
@@ -64,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Validar con la clase Routine
             try {
                 // Intentamos crear una instancia de Routine para validar la estructura
-                new Routine(
-                    rutina.routine_id,
+                rutina =new Routine(
+                    null,
                     rutina.created_by,
                     rutina.name,
                     rutina.description,
@@ -75,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
                 console.log("================================")
                 console.log('Rutina validada correctamente');
+                console.log(JSON.stringify(rutina));
                 
                 // Enviar la rutina al servidor
                 enviarRutinaAlServidor(rutina);
@@ -112,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        console.log('Rutina a enviar al servidor:', rutina);
         // Realizar la petición al servidor
         fetch('http://192.168.1.129:8085/routine', {
             method: 'POST',
@@ -133,7 +130,16 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Rutina creada exitosamente:', data);
             alert('¡Rutina creada con éxito!');
             
-            // Limpiar el formulario o redirigir a otra página
+            // Reiniciar la rutina actual
+            window.rutinaActual = {
+                id: null,
+                title: "",
+                description: "",
+                muscles: [],
+                blocks: []
+            };
+            
+            // Limpiar el formulario
             document.getElementById('title-input').value = '';
             document.getElementById('desc-input').value = '';
             
@@ -147,15 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (rutinaDiv) {
                 rutinaDiv.innerHTML = '';
             }
-            
-            // Reiniciar la rutina actual
-            window.rutinaActual = {
-                id: null,
-                title: "",
-                description: "",
-                muscles: [],
-                blocks: []
-            };
             
             // Actualizar la interfaz
             const dropdownButton = document.getElementById('dropdownMenuButton1');
