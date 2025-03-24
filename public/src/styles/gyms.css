@@ -14,7 +14,7 @@
 
 .search-container input {
     border: 2px solid black;
-    height: 3vw;
+    height: 4vw;
 }
 
 
@@ -22,7 +22,7 @@
     background-color: var(--main_color);
     color: black;
     border: 2px solid black;
-    height: 3vw;
+    height: 4vw;
 }
 
 .btn:hover{
@@ -32,14 +32,14 @@
 }
 
 .search-results {
-    position: absolute;
     top: 100%;
     left: 0;
-    background-color: rgba(128, 96, 0, 0.9);
-    border-radius: 5px;
-    padding: 10px;
-    width: 100%;
+    background-color: rgba(1, 1, 1, 0.9);
+    border-radius: 10px;
+    padding: 15px 20px;
+    width: 120%;
     display: none;
+    margin-left: 25%;
 }
 
 .search-results ul {
@@ -75,4 +75,48 @@
     .btn {
         height: 6vw;
     }
+}
+
+.gym-card {
+    background-color: #292929;
+    color: white;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.gym-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2); /* dorado */
+}
+
+.gym-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.gym-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.gym-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ffd700;
+}
+
+.no-results {
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    padding: 20px;
 }

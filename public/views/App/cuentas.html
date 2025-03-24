@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAINERZ - Cuentas</title>
     <link rel="stylesheet" href="../../src/styles/navbar.css">
+   
     <link rel="stylesheet" href="../../src/styles/cuentas.css">
     <script src="https://kit.fontawesome.com/95e2386fb6.js" crossorigin="anonymous"></script>
     <script src="src/scripts/router.js"></script>
@@ -32,12 +33,12 @@
         <div class="rest"></div>
     </header>
     <div class="content">
-        <div class="search-container">
-            <input type="text" id="search-bar" placeholder="Buscar">
-            <i class="fas fa-search"></i>
+        <div class="input-group mb-3 search-container">
+            <input type="text" id="search-bar" class="form-control" placeholder="Busca tu gym" aria-label="Buscar Gym" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="button-buscar"><i class="fas fa-search"></i></button>
         </div>
         <div class="search-results" id="search-results">
-            
+
         </div>
     </div>
     <script src="../../src/scripts/router.js"></script>
