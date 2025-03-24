@@ -53,44 +53,15 @@ class ExerciseSummary {
             throw new Error('El músculo principal debe ser un string no vacío');
         }
     }
-    
-    async validateInstance(token) {
-        try {
-            // Importar aquí para evitar referencia circular
-            const validExerciseSummary = require('../utils/validExerciseSummary');
-            
-            const { valid, data } = await validExerciseSummary(this.exercise_id, token);
-            
-            if (valid) {
-                this.name = data.name;
-                this.photo_link = data.photo_link;
-                this.equipment = data.equipment;
-                this.principal_muscle = data.principal_muscle;
-                return true;
-            } else {
-                throw new Error('No se pudo validar la instancia');
-            }
-        } catch (error) {
-            throw new Error(`Error validando ejercicio: ${error.message}`);
-        }
-    }
-    ToHTML(){
+    ToHTML_Search(){
         return `
-                                <div class="series-ej">
-                                    <p class="ej ubuntu-condensed-regular">${this.name}</p>
-                                    <div class="datos-serie ubuntu-condensed-regular">
-                                        <h2 class="squada-one-regular">Serie 1</h2>
-                                        <p>Músculo: ${ejercicio.principal_muscle}</p>
-                                        <p style="padding-left: 20px;">Reps: --</p>
-                                        <p style="padding-left: 20px;">Peso: --</p>
-                                    </div>
-                                </div>
-                                <div class="crear-series">
-                                    <p class="ubuntu-condensed-regular">Agregar serie</p>
-                                    <i class="fa-solid fa-circle-plus add-ej"></i>
-                                </div>
-                            `
-
+            <div class="series-ej" onclick="seleccionarEjercicio('${this.id}', '${this.name}', '${this.photo_link || ""}', '${this.principal_muscle}')">
+                <p class="ej ubuntu-condensed-regular">${this.name}</p>
+                <div class="datos-serie ubuntu-condensed-regular">
+                    <p>Músculo: ${this.principal_muscle}</p>
+                </div>
+            </div>
+        `;
     }
 }
 
@@ -117,6 +88,8 @@ class EquipmentGroup {
     }
 
 }
+
+
 
 
 window.ExerciseSummary = ExerciseSummary;
