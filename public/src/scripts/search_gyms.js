@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (query.length < 1) {
             resultsContainer.innerHTML = '';
+            resultsContainer.style.display = 'none';
             return;
         }
 
-        // Obtener token desde tu almacenamiento
         const token = AppStorage.getToken();
 
         fetch(`http://192.168.1.119:8081/gym/${encodeURIComponent(query)}`, {
@@ -26,23 +26,26 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             resultsContainer.innerHTML = '';
-
-            console.log("Resultados encontrados:", data);
+            resultsContainer.style.display = 'block';
 
             if (!data || data.length === 0) {
-                resultsContainer.innerHTML = '<p>No se encontraron resultados.</p>';
+                resultsContainer.innerHTML = '<p class="no-results">No se encontraron resultados.</p>';
                 return;
             }
 
             data.forEach(gym => {
                 const gymDiv = document.createElement('div');
-                gymDiv.classList.add('gym-result');
+                gymDiv.classList.add('gym-card');
 
                 gymDiv.innerHTML = `
-                    <h3>${gym.name}</h3>
-                    <p><strong>Ubicación:</strong> ${gym.location || 'No disponible'}</p>
-                    <p><strong>Teléfono:</strong> ${gym.phone || 'No disponible'}</p>
-                    <p><strong>ID Gym:</strong> ${gym.id_gym || 'No disponible'}</p>
+                    <div class="gym-header">
+                        <img src="${gym.Logo_link || 'https://via.placeholder.com/80'}" alt="Logo ${gym.Fullname}" class="gym-logo">
+                        <h3 class="gym-name">${gym.Fullname}</h3>
+                    </div>
+                    <p><strong>Dirección:</strong> ${gym.Address || 'No disponible'}</p>
+                    <p><strong>Email:</strong> ${gym.Email || 'No disponible'}</p>
+                    <p><strong>Teléfono:</strong> ${gym.Phone || 'No disponible'}</p>
+                    <p><strong>ID:</strong> ${gym.ID || 'No disponible'}</p>
                 `;
 
                 resultsContainer.appendChild(gymDiv);
@@ -50,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
             console.error('Error en la búsqueda:', error);
-            resultsContainer.innerHTML = '<p>Error al cargar resultados.</p>';
+            resultsContainer.innerHTML = '<p class="no-results">Error al cargar resultados.</p>';
         });
     });
 });
