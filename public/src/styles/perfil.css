@@ -48,8 +48,8 @@
   }
   
   #profile-pic {
-    width: 550px;
-    height: 550px;
+    width: 27vw;
+    height: 27vw;
     border-radius: 50%;
     object-fit: cover;
     display: block;

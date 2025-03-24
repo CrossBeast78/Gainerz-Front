@@ -34,3 +34,5 @@ function displayRoutines(routines) {
 }
 
 document.addEventListener('DOMContentLoaded', fetchRoutines);
+
+
