@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // ✅ Obtener user del body
                 const data = await response.json();
                 const account = data; 
-               
+                
                 if (!token || !account) {
                     alert("Faltan datos del servidor.");
                     return;
