@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let bloqueActualId = null;
 
     const crearRutinaHTML = `
-        <div class="crear-rutina content2" id="crear-rutina">
+        <div class="crear-rutina content2">
             <div class="new-rt">
                 <div style="display: flex; flex-direction: row;">
                     <div style="display: flex; flex-direction: column; width: 70%;">
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
             <div class="botones squada-one-regular">
-                <button class="btn-rtns btn-crear" id="btn-crear">CREAR</button>
+                <button class="btn-rtns btn-crear" id="btn-crear" onclick="crearYEnviarRutina()">CREAR</button>
                 <button class="btn-rtns btn-cancelar" id="btn-cancelar">CANCELAR</button>
             </div>
         </div>

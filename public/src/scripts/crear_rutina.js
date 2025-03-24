@@ -1,19 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Script de creación de rutinas cargado');
 
-    // Configurar el evento para el botón de crear rutina
-    const btnCrear = document.getElementById('btn-crear');
-    if (btnCrear) {
-        btnCrear.addEventListener('click', crearYEnviarRutina);
-        console.log('Evento de creación de rutina configurado');
-    } else {
-        console.error('No se encontró el botón de crear rutina');
-    }
-
-    /**
-     * Función principal para crear y enviar la rutina al servidor
-     */
-    function crearYEnviarRutina() {
+    // Primero definimos la función
+    window.crearYEnviarRutina = function() {
         console.log('Iniciando proceso de creación de rutina...');
 
         try {
@@ -98,6 +87,15 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error al crear rutina:', error);
             alert(`Error: ${error.message}`);
         }
+    };
+
+    // Luego configuramos el evento para el botón
+    const btnCrear = document.getElementById('btn-crear');
+    if (btnCrear) {
+        btnCrear.addEventListener('click', window.crearYEnviarRutina);
+        console.log('Evento de creación de rutina configurado');
+    } else {
+        console.error('No se encontró el botón de crear rutina');
     }
 
     /**
