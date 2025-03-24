@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
             </div>
-            <div style="width: 100%">
+            <div>
                 <div class="add-ejercicios armar">
                     <h1 class="squada-one-regular">Ejercicios</h1>
                     <div id="rutina">
