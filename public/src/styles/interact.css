@@ -1,0 +1,746 @@
+.interact {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.interact-content {
+    background-color: #1e1e1e;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px;
+    color: white;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para el modal de rutina */
+.interact-routine {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 17vw; /* Ancho de la sidebar */
+    width: 83vw; /* Ancho restante */
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.interact-routine-content {
+    background-color: #1e1e1e;
+    padding: 40px;
+    margin: 20px;
+    border-radius: 20px;
+    color: white;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    min-height: calc(100vh - 40px);
+}
+
+.interact-routine-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--main_color);
+}
+
+.interact-routine-header h2 {
+    margin: 0;
+    color: var(--main_color);
+    font-size: 2.5em;
+}
+
+.interact-routine-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.interact-routine-close:hover {
+    color: var(--main_color);
+}
+
+.interact-routine-body {
+    margin-bottom: 30px;
+}
+
+.routine-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.routine-title {
+    font-size: 2em;
+    color: var(--main_color);
+    margin: 0;
+}
+
+.routine-description {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.routine-muscles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.routine-muscles span {
+    background-color: var(--main_color);
+    color: black;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.routine-exercises {
+    margin-top: 30px;
+}
+
+.interact-routine-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid var(--main_color);
+}
+
+.interact-routine-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    background-color: var(--main_color);
+    color: black;
+    transition: all 0.3s;
+}
+
+.interact-routine-button:hover {
+    background-color: #b38f00;
+}
+
+.interact-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.interact-header h2 {
+    margin: 0;
+    color: var(--main_color);
+    font-size: 2.5em;
+}
+
+.interact-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.interact-close:hover {
+    color: var(--main_color);
+}
+
+.interact-body {
+    margin-bottom: 30px;
+}
+
+.interact-search {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.gym-search-input {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid var(--main_color);
+    border-radius: 10px;
+    background-color: #2a2a2a;
+    color: white;
+    font-size: 1.2em;
+}
+
+.gym-search-button {
+    background-color: var(--main_color);
+    border: none;
+    border-radius: 10px;
+    padding: 15px 25px;
+    cursor: pointer;
+    color: black;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+.gym-search-button:hover {
+    background-color: #b38f00;
+}
+
+.gym-results-container {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.gym-results-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.gym-results-container::-webkit-scrollbar-track {
+    background: #2a2a2a;
+    border-radius: 4px;
+}
+
+.gym-results-container::-webkit-scrollbar-thumb {
+    background: var(--main_color);
+    border-radius: 4px;
+}
+
+.gym-result {
+    background-color: #2a2a2a;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+}
+
+.gym-result:hover {
+    background-color: #3a3a3a;
+    border-color: var(--main_color);
+    transform: translateY(-2px);
+}
+
+.gym-result p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+.interact-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.interact-button, .interact-skip, .interact-accept {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: all 0.3s;
+}
+
+.interact-button {
+    background-color: #666;
+    color: white;
+}
+
+.interact-button:hover {
+    background-color: #777;
+}
+
+.interact-skip {
+    background-color: #444;
+    color: white;
+}
+
+.interact-skip:hover {
+    background-color: #555;
+}
+
+.interact-accept {
+    background-color: var(--main_color);
+    color: black;
+}
+
+.interact-accept:hover {
+    background-color: #b38f00;
+}
+
+.exercise-block {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--main_color);
+}
+
+.exercise-title {
+    color: var(--main_color);
+    font-size: 1.5em;
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--main_color);
+}
+
+.exercise-series {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.serie-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.serie-item:hover {
+    background-color: #3a3a3a;
+}
+
+.serie-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--main_color);
+}
+
+.serie-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+}
+
+.serie-type {
+    color: var(--main_color);
+    font-weight: bold;
+    min-width: 100px;
+}
+
+.serie-range {
+    color: #fff;
+    min-width: 100px;
+}
+
+.serie-description {
+    color: #ccc;
+    flex: 1;
+}
+
+.routine-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.header1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.header2 {
+    font-size: 1.2em;
+    color: #FFFFFF;
+    line-height: 1.5;
+}
+
+.routine-divider {
+    height: 2px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+.exercise-header {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.exercise-info {
+    flex: 1;
+}
+
+.exercise-replace-btn {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.exercise-replace-btn:hover {
+    background-color: #34495e;
+}
+
+.exercise-replace-btn.incompatible {
+    background-color: #f1c40f !important;
+    color: #2c3e50 !important;
+    font-weight: bold !important;
+    border: 2px solid #e67e22 !important;
+    box-shadow: 0 0 8px rgba(241, 196, 15, 0.7) !important;
+    transition: all 0.3s ease !important;
+}
+
+.exercise-replace-btn.incompatible:hover {
+    background-color: #e67e22 !important;
+    transform: scale(1.05) !important;
+}
+
+.header3 {
+    font-size: 1.8em;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.exercise-divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 15px 0;
+}
+
+.serie-item {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.serie-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.header4 {
+    font-size: 1.4em;
+    color: #555;
+    margin: 0;
+}
+
+.serie-content {
+    margin-left: 30px;
+}
+
+.serie-range {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.serie-description {
+    color: #777;
+    line-height: 1.4;
+}
+
+.gym-search-section {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.gym-search-text {
+    color: #FFD700;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.gym-search-btn {
+    background-color: #FFD700;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.gym-search-btn:hover {
+    background-color: #FFC800;
+}
+
+.routine-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1E1E1E;
+    border-radius: 10px;
+}
+
+.routine-actions {
+    margin-top: 30px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.routine-back-btn {
+    background-color: #FFD700;
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.routine-back-btn:hover {
+    background-color: #FFC800;
+}
+
+.routine-back-btn i {
+    font-size: 1.2em;
+}
+
+.routine-details-title {
+    font-size: 2.5em;
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Squada One', cursive;
+}
+
+.gym-compatibility-message {
+    margin: 20px 0;
+}
+
+.compatibility-success, 
+.compatibility-warning {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.compatibility-success {
+    background-color: rgba(46, 204, 113, 0.2);
+    border: 1px solid #2ecc71;
+}
+
+.compatibility-warning {
+    background-color: rgba(241, 196, 15, 0.2);
+    border: 1px solid #f1c40f;
+}
+
+.compatibility-success i, 
+.compatibility-warning i {
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.compatibility-success i {
+    color: #2ecc71;
+}
+
+.compatibility-warning i {
+    color: #f1c40f;
+}
+
+.compatibility-success p, 
+.compatibility-warning p {
+    margin: 0;
+    flex: 1;
+    color: #FFFFFF;
+}
+
+.show-details-btn {
+    background-color: #f1c40f;
+    color: #000;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.show-details-btn:hover {
+    background-color: #e6b400;
+}
+
+.incompatible-message {
+    background-color: rgba(241, 196, 15, 0.2);
+    border-left: 4px solid #f1c40f;
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-radius: 4px;
+}
+
+.incompatible-message p {
+    margin: 0;
+    font-size: 14px;
+    color: #e67e22;
+    font-weight: bold;
+}
+
+.incompatible-message i {
+    margin-right: 6px;
+    color: #f1c40f;
+}
+
+/* Estilos para el modal de ejercicios similares */
+#similar_exercises_modal .similar-exercises-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 450px;
+    overflow-y: auto;
+    padding: 10px 0;
+}
+
+#similar_exercises_modal .similar-exercise {
+    background-color: #2c3e50;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+#similar_exercises_modal .similar-exercise:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#similar_exercises_modal .similar-exercise-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#similar_exercises_modal .similar-exercise-info h3 {
+    font-size: 20px;
+    color: #ffffff;
+    margin: 0;
+    font-weight: bold;
+}
+
+#similar_exercises_modal .similar-exercise-info p {
+    margin: 0;
+    color: #ecf0f1;
+    font-size: 14px;
+}
+
+#similar_exercises_modal .select-similar-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: flex-end;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#similar_exercises_modal .select-similar-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+#similar_exercises_modal .no-similar {
+    text-align: center;
+    font-size: 18px;
+    color: #ecf0f1;
+    padding: 20px;
+}
+
+#similar_exercises_modal .similar-cancel {
+    background-color: #7f8c8d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#similar_exercises_modal .similar-cancel:hover {
+    background-color: #95a5a6;
+}
+
+#similar_exercises_modal .similar-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s;
+}
+
+#similar_exercises_modal .similar-close:hover {
+    transform: scale(1.2);
+}
+
+/* Asegurar que todos los textos en gris se muestren en blanco */
+.interact-content p, 
+.interact-routine-content p, 
+.routine-description,
+.exercise-muscle,
+.serie-description,
+.serie-range {
+    color: #FFFFFF;
+}
+
+/* Color amarillo para preguntas y textos importantes */
+.gym-search-section p {
+    color: #000000;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.exercise-muscle {
+    color: #000000;
+    margin-bottom: 5px;
+} 

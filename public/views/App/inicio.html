@@ -6,6 +6,7 @@
     <title>GAINERZ - Bandeja</title>
     <link rel="stylesheet" href="/../src/styles/navbar.css">
     <link rel="stylesheet" href="/../src/styles/inicio.css">
+    <link rel="stylesheet" href="/../src/styles/interact.css">
     <script src="https://kit.fontawesome.com/95e2386fb6.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -53,11 +54,56 @@
             </div>
         </div>
     </div>
+
+    <div class="interact" id="interact_gym_search" style="display: none;">
+        <div class="interact-content">
+            <div class="interact-header">
+                <h2 class="squada-one-regular">Buscar Gimnasio</h2>
+                <button class="interact-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="interact-body">
+                <div class="interact-search">
+                    <input type="text" class="gym-search-input" placeholder="Buscar gimnasio...">
+                    <button class="gym-search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <div class="gym-results-container">
+                    <!-- Aquí se mostrarán los resultados de la búsqueda -->
+                </div>
+            </div>
+            <div class="interact-footer">
+                <button class="interact-skip">Omitir</button>
+                <button class="interact-accept" style="display: none;">Aceptar</button>
+                <button class="interact-button">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="interact-routine" id="interact_routine_modal" style="display: none;">
+        <div class="interact-routine-content">
+            <div class="interact-routine-header">
+                <h2 class="squada-one-regular">Detalles de la Rutina</h2>
+                <button class="interact-routine-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="interact-routine-body">
+                <div class="routine-details">
+                    <h3 class="routine-title"></h3>
+                    <p class="routine-description"></p>
+                    <div class="routine-muscles"></div>
+                    <div class="routine-exercises"></div>
+                </div>
+            </div>
+            <div class="interact-routine-footer">
+                <button class="interact-routine-button">Cerrar</button>
+            </div>
+        </div>
+    </div>
     
     <script src="../../src/models/rutine_summary.js"></script>
     <script src="../../src/scripts/Appstorage.js"></script>
     <script src="../../src/scripts/router.js"></script>
+    <script src="../../src/scripts/gym_validator.js"></script>
     <script src="../../src/scripts/interact.js"></script>
+    <script src="../../src/scripts/exercise_similarity.js"></script>
     <script src="../../src/scripts/rutinas2.js"></script>
 </body>
 </html>

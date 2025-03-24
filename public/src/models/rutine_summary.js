@@ -8,15 +8,13 @@ class rutinesummary {
 
     get_routine_summary() {
         return `
-            <div class="routine-summary">
+            <div class="routine-summary" onclick="showRoutineModal('${this.routine_id}')">
                 <h2 class="routine-name">${this.name}</h2>
                 <p class="routine-text routine-description"><strong>Description:</strong> ${this.description}</p>
                 <p class="routine-text routine-muscles"><strong>Muscles:</strong> ${this.muscles.join(', ')}</p>
             </div>
         `;
     }
-
-
 }
 
-window.rutinesummary = rutinesummary;
+window.rutinesummary = rutinesummary;   
